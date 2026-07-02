@@ -1,20 +1,16 @@
-import { useState } from "react";
 import logoImg from "../../../assets/images/logo.png";
 import menuImg from "../../../assets/images/menu.png";
 
-const links = [
-    { href: "#home", label: "Home" },
-    { href: "#sobre", label: "Sobre" },
-    { href: "#projetos", label: "Projetos" },
-    { href: "#contato", label: "Contato" },
-];
+type NavbarProps = {
+    isOpen: boolean;
+    onToggleMenu: () => void;
+    onCloseMenu: () => void;
+};
 
-export const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
+export const Navbar = ({ isOpen, onToggleMenu, onCloseMenu }: NavbarProps) => {
     return (
         <nav className="relative z-50 w-full">
-            <div className="flex items-center justify-between px-3 pt-3 absolute top-0 left-0 w-full z-50">
+            <div className="absolute left-0 top-0 z-50 flex w-full items-center justify-between px-2 pt-3">
                 <img
                     src={logoImg}
                     alt="Logo Mariah Desenvolvedora Front-end"
@@ -23,7 +19,7 @@ export const Navbar = () => {
 
                 <button
                     type="button"
-                    onClick={() => setIsOpen((prev) => !prev)}
+                    onClick={isOpen ? onCloseMenu : onToggleMenu}
                     className="rounded-full p-2 transition-transform hover:scale-105 focus:outline-none"
                     aria-label="Abrir menu"
                     aria-expanded={isOpen}
@@ -32,22 +28,6 @@ export const Navbar = () => {
                 </button>
             </div>
 
-            {isOpen && (
-                <div className="absolute right-3 top-full mt-2 w-48 rounded-xl border border-white/10 bg-slate-950/95 p-3 shadow-2xl backdrop-blur-md">
-                    <div className="flex flex-col gap-2">
-                        {links.map(({ href, label }) => (
-                            <a
-                                key={href}
-                                href={href}
-                                onClick={() => setIsOpen(false)}
-                                className="rounded-lg px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-cyan-500/10 hover:text-cyan-400"
-                            >
-                                {label}
-                            </a>
-                        ))}
-                    </div>
-                </div>
-            )}
         </nav>
     );
 };

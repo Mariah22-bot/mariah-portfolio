@@ -1,19 +1,14 @@
-import { useState, useEffect } from "react";
 import imagemCentral from "../../../assets/images/imagem-central.png";
 
-export const InteractiveContainer = () => {
-    const [hintActive, setHintActive] = useState(false);
-    const [isHairHovered, setIsHairHovered] = useState(false);
-    const [isEyeHovered, setIsEyeHovered] = useState(false);
-    const [isMouthHovered, setIsMouthHovered] = useState(false);
+type InteractiveContainerProps = {
+    showHotspots?: boolean;
+    onSelectHotspot?: () => void;
+};
 
-    // Ativa a indicação sutil de interação (piscada/brilho) após 3 segundos
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setHintActive(true);
-        }, 3000);
-        return () => clearTimeout(timer);
-    }, []);
+export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: InteractiveContainerProps) => {
+    const shouldRevealHair = showHotspots;
+    const shouldRevealEye = showHotspots;
+    const shouldRevealMouth = showHotspots;
 
     return (
         <div className="absolute inset-x-0 top-20 z-10 flex justify-center sm:top-16 md:top-12 lg:top-8">
@@ -34,9 +29,11 @@ export const InteractiveContainer = () => {
                     {/* ------------------------------------------------------------- */}
                     {/* HOTSPOT DA BOCA (CONTATO) */}
                     {/* ------------------------------------------------------------- */}
-                    <a href="/contact" className="group cursor-pointer focus-visible:outline-none"
-                        onMouseEnter={() => setIsMouthHovered(true)}
-                        onMouseLeave={() => setIsMouthHovered(false)}
+                    <a href="#" className="group cursor-pointer focus-visible:outline-none"
+                        onClick={(event) => {
+                            event.preventDefault();
+                            onSelectHotspot?.();
+                        }}
                     >
                         {/* 
                           Mudança: Adicionado 'group-hover:scale-110' e ajustado origin para o centro exato [493px_740px]
@@ -49,7 +46,7 @@ export const InteractiveContainer = () => {
                             translate-x-3
                             translate-y-8
 
-                            ${hintActive ? "animate-float" : ""}`}
+                            ${shouldRevealMouth ? "animate-float" : ""}`}
                         >
                             {/* Área interna invisível para clique total */}
                             <path
@@ -88,7 +85,7 @@ export const InteractiveContainer = () => {
                                     C 505,740 530,730 565,734"
                                 stroke="var(--color-glow-mouth)"
                                 strokeWidth="2"
-                                className="opacity-20 group-hover:opacity-80 transition-opacity duration-500"
+                                className={`${shouldRevealMouth ? "opacity-80" : "opacity-20"} group-hover:opacity-80 transition-opacity duration-500`}
                             />
                         </g>
                     </a>
@@ -96,22 +93,25 @@ export const InteractiveContainer = () => {
                     {/* ------------------------------------------------------------- */}
                     {/* HOTSPOT DO OLHO ESQUERDO (SOBRE MIM)                          */}
                     {/* ------------------------------------------------------------- */}
-                    <a href="/about" className="group cursor-pointer focus-visible:outline-none"
-                        onMouseEnter={() => setIsEyeHovered(true)}
-                        onMouseLeave={() => setIsEyeHovered(false)}
+                    <a href="#" className="group cursor-pointer focus-visible:outline-none"
+                        onClick={(event) => {
+                            event.preventDefault();
+                            onSelectHotspot?.();
+                        }}
                     >
                         {/* 
                           Mudança: Adicionado 'group-hover:scale-110' e corrigido origin para [365px_577px] 
                           (o centro da massa do olho esquerdo).
                         */}
                         <g
-                            className={`fill-none transition-all duration-500 origin-[365px_577px] group-hover:scale-110
+                            className={`fill-none transition-all 
+                            duration-500 origin-[365px_577px] group-hover:scale-110
                             filter-[drop-shadow(0_0_4px_var(--color-glow-eye))] 
                             group-hover:filter-[drop-shadow(0_0_20px_var(--color-glow-eye))]
                             translate-x-6
                             translate-y-4.5
 
-                            ${hintActive ? "animate-float" : ""}`}
+                            ${shouldRevealEye ? "animate-float" : ""}`}
                         >
                             {/* Área interna invisível para clique total */}
                             <path
@@ -143,7 +143,7 @@ export const InteractiveContainer = () => {
                                     C 310,587 295,555 295,555"
                                 stroke="var(--color-glow-eye)"
                                 strokeWidth="3"
-                                className="opacity-30 group-hover:opacity-90 transition-opacity duration-500"
+                                className={`${shouldRevealEye ? "opacity-90" : "opacity-30"} group-hover:opacity-90 transition-opacity duration-500`}
                                 strokeLinecap="round"
                             />
                         </g>
@@ -151,11 +151,8 @@ export const InteractiveContainer = () => {
 
                     {/* HOTSPOT DO OLHO DIREITO (SOBRE MIM) */}
 
-                    <a href="/about" className="group cursor-pointer focus-visible:outline-none"
-                        onMouseEnter={() => setIsEyeHovered(true)}
-                        onMouseLeave={() => setIsEyeHovered(false)}
-                    >
-                        <g className={hintActive ? "animate-float" : ""}>
+                    <a href="#" className="group">
+                        <g className="">
                             <g
                                 className={`fill-none transition-all duration-500 origin-[365px_577px] group-hover:scale-110
                                 scale-x-[-1]
@@ -166,7 +163,7 @@ export const InteractiveContainer = () => {
                                 translate-x-52
                                 translate-y-5.5
 
-                                ${hintActive ? "animate-float" : ""}`}
+                                ${shouldRevealEye ? "animate-float" : ""}`}
                             >
                                 {/* Área interna invisível para clique total */}
 
@@ -200,7 +197,7 @@ export const InteractiveContainer = () => {
                                         C 310,587 295,555 295,555"
                                     stroke="var(--color-glow-eye)"
                                     strokeWidth="3"
-                                    className="opacity-30 group-hover:opacity-90 transition-opacity duration-500"
+                                    className={`${shouldRevealEye ? "opacity-90" : "opacity-30"} group-hover:opacity-90 transition-opacity duration-500`}
                                     strokeLinecap="round"
                                 />
                             </g>
@@ -210,9 +207,11 @@ export const InteractiveContainer = () => {
 
                     {/* HOTSPOT DO CACHO DE CABELO CENTRAL (PROJETOS) */}
 
-                    <a href="/projects" className="group cursor-pointer focus-visible:outline-none"
-                        onMouseEnter={() => setIsHairHovered(true)}
-                        onMouseLeave={() => setIsHairHovered(false)}
+                    <a href="#" className="group cursor-pointer focus-visible:outline-none"
+                        onClick={(event) => {
+                            event.preventDefault();
+                            onSelectHotspot?.();
+                        }}
                     >
 
                         <g
@@ -222,7 +221,7 @@ export const InteractiveContainer = () => {
                             translate-x-3
                             translate-y-3
 
-                            ${hintActive ? "animate-float" : ""}`}
+                            ${shouldRevealHair ? "animate-float" : ""}`}
                         >
                             {/* O Cacho ondulado visível */}
                             <path
@@ -265,12 +264,14 @@ export const InteractiveContainer = () => {
                     {/* ------------------------------------------------------------- */}
                     {/* HOTSPOT DO CACHO DE CABELO ESQUERDO (DIAGONAL) */}
                     {/* ------------------------------------------------------------- */}
-                    <a href="/projects-left" className="group cursor-pointer focus-visible:outline-none"
-                        onMouseEnter={() => setIsHairHovered(true)}
-                        onMouseLeave={() => setIsHairHovered(false)}
+                    <a href="#" className="group cursor-pointer focus-visible:outline-none"
+                        onClick={(event) => {
+                            event.preventDefault();
+                            onSelectHotspot?.();
+                        }}
                     >
                         {/* Camada de animação contínua (Pulso) */}
-                        <g className={hintActive ? "animate-float" : ""}>
+                        <g className="">
                             {/* Camada de Zoom e Posicionamento: */}
                             <g
                                 className="fill-none transition-all duration-500 origin-[485px_260px] group-hover:scale-110
@@ -321,12 +322,14 @@ export const InteractiveContainer = () => {
                     {/* ------------------------------------------------------------- */}
                     {/* HOTSPOT DO CACHO DE CABELO DIREITO (DIAGONAL)                 */}
                     {/* ------------------------------------------------------------- */}
-                    <a href="/projects-right" className="group cursor-pointer focus-visible:outline-none"
-                        onMouseEnter={() => setIsHairHovered(true)}
-                        onMouseLeave={() => setIsHairHovered(false)}
+                    <a href="#" className="group cursor-pointer focus-visible:outline-none"
+                        onClick={(event) => {
+                            event.preventDefault();
+                            onSelectHotspot?.();
+                        }}
                     >
                         {/* Camada de animação contínua (Pulso) */}
-                        <g className={hintActive ? "animate-float" : ""}>
+                        <g className="">
                             {/* Camada de Zoom e Posicionamento: */}
                             <g
                                 className="fill-none transition-all duration-500 origin-[485px_260px] group-hover:scale-110
@@ -383,20 +386,20 @@ export const InteractiveContainer = () => {
                         className={`font-sans font-thin text-[150px]  tracking-widest uppercase transition-all duration-500 select-none pointer-events-none
                         fill-glow-textHair
                         filter-[drop-shadow(0_0_25px_#fff)_drop-shadow(0_0_25px_#fff)_drop-shadow(0_0_25px_#fff)]
-                        ${isHairHovered ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-95"}`}
+                        ${shouldRevealHair ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-95"}`}
                     >
                         Projetos
                     </text>
 
                     <text
                         x="510" // Centralizado horizontalmente
-                        y="640" // Posicionado verticalmente
+                        y="540" // Posicionado verticalmente
                         textAnchor="middle"
                         // Garante o alinhamento centralizado perfeito a partir do ponto X
                         className={`font-sans font-thin text-[150px]  tracking-widest uppercase transition-all duration-500 select-none pointer-events-none
                         fill-glow-textEye
                         filter-[drop-shadow(0_0_25px_#fff)_drop-shadow(0_0_25px_#fff)_drop-shadow(0_0_25px_#fff)]
-                        ${isEyeHovered ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-95"}`}
+                        ${shouldRevealEye ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-95"}`}
                     >
                         Sobre
                     </text>
@@ -409,9 +412,9 @@ export const InteractiveContainer = () => {
                         className={`font-sans font-thin text-[150px] tracking-widest uppercase transition-all duration-500 select-none pointer-events-none
                         fill-glow-textMouth
                         filter-[drop-shadow(0_0_25px_#fff)_drop-shadow(0_0_25px_#fff)_drop-shadow(0_0_25px_#fff)]
-                        ${isMouthHovered ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-95"}`}
+                        ${shouldRevealMouth ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-95"}`}
                     >
-                        Contatos
+                        Contato
                     </text>
 
                 </svg>
