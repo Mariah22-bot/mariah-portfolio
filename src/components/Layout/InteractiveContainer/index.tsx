@@ -6,9 +6,11 @@ type InteractiveContainerProps = {
 };
 
 export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: InteractiveContainerProps) => {
-    const shouldRevealHair = showHotspots;
-    const shouldRevealEye = showHotspots;
-    const shouldRevealMouth = showHotspots;
+    // Mostrar as animações (animate-float) enquanto o menu estiver fechado.
+    // showHotspots === true significa menu aberto, então invertemos.
+    const shouldRevealHair = !showHotspots;
+    const shouldRevealEye = !showHotspots;
+    const shouldRevealMouth = !showHotspots;
 
     return (
         <div className="absolute inset-x-0 top-20 z-10 flex justify-center sm:top-16 md:top-12 lg:top-8">
@@ -274,13 +276,15 @@ export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: 
                         <g className="">
                             {/* Camada de Zoom e Posicionamento: */}
                             <g
-                                className="fill-none transition-all duration-500 origin-[485px_260px] group-hover:scale-110
+                                className={`fill-none transition-all duration-500 origin-[485px_260px] group-hover:scale-110
                                 filter-[drop-shadow(0_0_4px_var(--color-glow-hair))] 
                                 group-hover:filter-[drop-shadow(0_0_20px_var(--color-glow-hair))]
                                 rotate-[-32deg] 
                                 -translate-x-12 
-                                translate-y-5"
+                                translate-y-5
+                                ${shouldRevealHair ? "animate-float" : ""}`}
                             >
+
                                 {/* O Cacho ondulado visível (Mesmo caminho D) */}
                                 <path
                                     d="M 490,260 
@@ -332,13 +336,15 @@ export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: 
                         <g className="">
                             {/* Camada de Zoom e Posicionamento: */}
                             <g
-                                className="fill-none transition-all duration-500 origin-[485px_260px] group-hover:scale-110
+                                className={`fill-none transition-all duration-500 origin-[485px_260px] group-hover:scale-110
                                 filter-[drop-shadow(0_0_4px_var(--color-glow-hair))] 
                                 group-hover:filter-[drop-shadow(0_0_20px_var(--color-glow-hair))]
                                 rotate-32 
                                 translate-x-20 
-                                translate-y-5"
+                                translate-y-5
+                                ${shouldRevealHair ? "animate-float" : ""}`}
                             >
+
                                 {/* O Cacho ondulado visível (Mesmo caminho D) */}
                                 <path
                                     d="M 490,260 
@@ -377,46 +383,6 @@ export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: 
                             </g>
                         </g>
                     </a>
-
-                    {/* Texto dinâmico que aparece ao passar o mouse em qualquer cacho */}
-                    <text
-                        x="500" // Centralizado horizontalmente
-                        y="260" // Posicionado verticalmente
-                        textAnchor="middle" // Garante o alinhamento centralizado perfeito a partir do ponto X
-                        className={`font-sans font-thin text-[150px]  tracking-widest uppercase transition-all duration-500 select-none pointer-events-none
-                        fill-glow-textHair
-                        filter-[drop-shadow(0_0_25px_#fff)_drop-shadow(0_0_25px_#fff)_drop-shadow(0_0_25px_#fff)]
-                        ${shouldRevealHair ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-95"}`}
-                    >
-                        Projetos
-                    </text>
-
-                    <text
-                        x="510" // Centralizado horizontalmente
-                        y="540" // Posicionado verticalmente
-                        textAnchor="middle"
-                        // Garante o alinhamento centralizado perfeito a partir do ponto X
-                        className={`font-sans font-thin text-[150px]  tracking-widest uppercase transition-all duration-500 select-none pointer-events-none
-                        fill-glow-textEye
-                        filter-[drop-shadow(0_0_25px_#fff)_drop-shadow(0_0_25px_#fff)_drop-shadow(0_0_25px_#fff)]
-                        ${shouldRevealEye ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-95"}`}
-                    >
-                        Sobre
-                    </text>
-
-                    <text
-                        x="510" // Centralizado horizontalmente
-                        y="830" // Posicionado verticalmente
-                        textAnchor="middle"
-                        // Garante o alinhamento centralizado perfeito a partir do ponto X
-                        className={`font-sans font-thin text-[150px] tracking-widest uppercase transition-all duration-500 select-none pointer-events-none
-                        fill-glow-textMouth
-                        filter-[drop-shadow(0_0_25px_#fff)_drop-shadow(0_0_25px_#fff)_drop-shadow(0_0_25px_#fff)]
-                        ${shouldRevealMouth ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-95"}`}
-                    >
-                        Contato
-                    </text>
-
                 </svg>
             </div>
         </div>
