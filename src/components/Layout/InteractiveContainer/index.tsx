@@ -33,11 +33,11 @@ export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: 
                     {/* ------------------------------------------------------------- */}
                     {/* HOTSPOT DA BOCA (CONTATO) */}
                     {/* ------------------------------------------------------------- */}
-                    <a href="#" className="group cursor-pointer focus-visible:outline-none"
+                    <a href="contato" className="group cursor-pointer focus-visible:outline-none"
                         onClick={(event) => {
                             event.preventDefault();
                             onSelectHotspot?.();
-                            navigate('/sobre');
+                            navigate('/contato');
                         }}
                     >
 
@@ -99,10 +99,11 @@ export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: 
                     {/* ------------------------------------------------------------- */}
                     {/* HOTSPOT DO OLHO ESQUERDO (SOBRE MIM)                          */}
                     {/* ------------------------------------------------------------- */}
-                    <a href="#" className="group cursor-pointer focus-visible:outline-none"
+                    <a href="sobre" className="group cursor-pointer focus-visible:outline-none"
                         onClick={(event) => {
                             event.preventDefault();
                             onSelectHotspot?.();
+                            navigate('/sobre');
                         }}
                     >
                         {/* 
@@ -157,7 +158,7 @@ export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: 
 
                     {/* HOTSPOT DO OLHO DIREITO (SOBRE MIM) */}
 
-                    <a href="#" className="group">
+                    <a href="sobre" className="group">
                         <g className="">
                             <g
                                 className={`fill-none transition-all duration-500 origin-[365px_577px] group-hover:scale-110
@@ -213,10 +214,11 @@ export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: 
 
                     {/* HOTSPOT DO CACHO DE CABELO CENTRAL (PROJETOS) */}
 
-                    <a href="#" className="group cursor-pointer focus-visible:outline-none"
+                    <a href="projetos" className="group cursor-pointer focus-visible:outline-none"
                         onClick={(event) => {
                             event.preventDefault();
                             onSelectHotspot?.();
+                            navigate('/projetos');
                         }}
                     >
 
@@ -270,10 +272,11 @@ export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: 
                     {/* ------------------------------------------------------------- */}
                     {/* HOTSPOT DO CACHO DE CABELO ESQUERDO (DIAGONAL) */}
                     {/* ------------------------------------------------------------- */}
-                    <a href="#" className="group cursor-pointer focus-visible:outline-none"
+                    <a href="projetos" className="group cursor-pointer focus-visible:outline-none"
                         onClick={(event) => {
                             event.preventDefault();
                             onSelectHotspot?.();
+                            navigate('/projetos');
                         }}
                     >
                         {/* Camada de animação contínua (Pulso) */}
@@ -330,10 +333,11 @@ export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: 
                     {/* ------------------------------------------------------------- */}
                     {/* HOTSPOT DO CACHO DE CABELO DIREITO (DIAGONAL)                 */}
                     {/* ------------------------------------------------------------- */}
-                    <a href="#" className="group cursor-pointer focus-visible:outline-none"
+                    <a href="projetos" className="group cursor-pointer focus-visible:outline-none"
                         onClick={(event) => {
                             event.preventDefault();
                             onSelectHotspot?.();
+                            navigate('/projetos');
                         }}
                     >
                         {/* Camada de animação contínua (Pulso) */}
