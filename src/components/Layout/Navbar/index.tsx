@@ -35,11 +35,11 @@ export const Navbar = ({ isOpen, onToggleMenu, onCloseMenu }: NavbarProps) => {
                 <button
                     type="button"
                     onClick={isOpen ? onCloseMenu : onToggleMenu}
-                    className="rounded-full p-2 transition-transform hover:scale-105 focus:outline-none cursor-pointer"
+                    className="rounded-full p-2 transition-transform hover:scale-105 focus:outline-none cursor-pointer botao-menu-sanduiche"
                     aria-label="Abrir menu"
                     aria-expanded={isOpen}
                 >
-                    <img src={menuImg} alt="Ícone de menu" className="h-auto w-20 object-contain" />
+                    <img src={menuImg} alt="Ícone de menu" className="h-auto w-20 object-contain pointer-events-none" />
                 </button>
             </div>
 
