@@ -1,8 +1,12 @@
 import { useState } from 'react'
 import { Main } from './components/Layout/Main'
 import { InteractiveContainer } from './components/Layout/InteractiveContainer'
-import { Navbar } from './components/Layout/NavBar'
+import { NavBar } from './components/Layout/NavBar'
 import { WindowMenu } from './components/Layout/WindowMenu'
+import { Routes, Route } from 'react-router-dom'
+import { Projetos } from './components/Projetos'
+import { Sobre } from './components/Sobre'
+import { Contato } from './components/Contato'
 
 type MenuItem = 'projetos' | 'sobre' | 'contato'
 
@@ -17,15 +21,21 @@ function App() {
 
   return (
     <Main>
-      <Navbar
+      <NavBar
         isOpen={isMenuOpen}
         onToggleMenu={toggleMenu}
         onCloseMenu={closeMenu}
       />
-      <InteractiveContainer
-        showHotspots={isMenuOpen}
-        onSelectHotspot={closeMenu}
-      />
+
+      <Routes>
+        <Route path="/" element=
+          {<InteractiveContainer showHotspots={isMenuOpen} onSelectHotspot={closeMenu}>
+          </InteractiveContainer>} />
+        <Route path="/projetos" element={<Projetos />} />
+        <Route path="/sobre" element={<Sobre />} />
+        <Route path="/contato" element={<Contato />} />
+      </Routes>
+
       <WindowMenu
         isOpen={isMenuOpen}
         onClose={closeMenu}

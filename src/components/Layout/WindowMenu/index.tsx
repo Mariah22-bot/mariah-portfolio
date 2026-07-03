@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom"
 
 type WindowMenuProps = {
     isOpen: boolean;
@@ -67,32 +68,42 @@ export const WindowMenu = ({ isOpen, onClose, onSelectItem }: WindowMenuProps) =
                 <div className="mb-6 flex items-center justify-between gap-4"></div>
 
                 <div className="grid gap-4 md:grid-cols-3">
-                    <button
+                    {/* <button
                         type="button"
                         onClick={() => handleSelect("projetos")}
                         className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer"
-                    >
-                        <span className="block text-4xl font-semibold text-cyan-200">Projetos</span>
-                    </button>
+                    > */}
 
-                    <button
-                        type="button"
-                        onClick={() => handleSelect("sobre")}
-                        className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer"
-                    >
-                        <span className="block text-4xl font-semibold text-cyan-200">Sobre</span>
-                    </button>
+                    <Link
+                        to="/projetos"
+                        onClick={() => handleSelect('projetos')}
+                        className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer">
+                        <span className="block text-4xl font-semibold text-cyan-200">
+                            Projetos
+                        </span>
+                    </Link>
 
-                    <button
-                        type="button"
-                        onClick={() => handleSelect("contato")}
-                        className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer"
-                    >
-                        <span className="block text-4xl font-semibold text-cyan-200">Contato</span>
-                    </button>
+                    <Link
+                        to="/sobre"
+                        onClick={() => handleSelect('sobre')}
+                        className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer">
+                        <span className="block text-4xl font-semibold text-cyan-200">
+                            Sobre
+                        </span>
+                    </Link>
+
+                    <Link
+                        to="/contato"
+                        onClick={() => handleSelect('contato')}
+                        className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer">
+                        <span className="block text-4xl font-semibold text-cyan-200">
+                            Contato
+                        </span>
+                    </Link>
+
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

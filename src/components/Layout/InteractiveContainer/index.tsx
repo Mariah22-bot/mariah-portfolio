@@ -1,4 +1,5 @@
 import imagemCentral from "../../../assets/images/imagem-central.png";
+import { useNavigate } from 'react-router-dom'
 
 type InteractiveContainerProps = {
     showHotspots?: boolean;
@@ -6,6 +7,7 @@ type InteractiveContainerProps = {
 };
 
 export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: InteractiveContainerProps) => {
+    const navigate = useNavigate()
     // Mostrar as animações (animate-float) enquanto o menu estiver fechado.
     // showHotspots === true significa menu aberto, então invertemos.
     const shouldRevealHair = !showHotspots;
@@ -35,6 +37,7 @@ export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: 
                         onClick={(event) => {
                             event.preventDefault();
                             onSelectHotspot?.();
+                            navigate('/sobre');
                         }}
                     >
 
