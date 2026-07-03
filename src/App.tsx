@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Main } from './components/Layout/Main'
 import { InteractiveContainer } from './components/Layout/InteractiveContainer'
-import { Navbar } from './components/Layout/Navbar'
+import { Navbar } from './components/Layout/NavBar'
 import { WindowMenu } from './components/Layout/WindowMenu'
 
 type MenuItem = 'projetos' | 'sobre' | 'contato'

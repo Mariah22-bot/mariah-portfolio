@@ -37,6 +37,7 @@ export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: 
                             onSelectHotspot?.();
                         }}
                     >
+
                         {/* 
                           Mudança: Adicionado 'group-hover:scale-110' e ajustado origin para o centro exato [493px_740px]
                           para expandir suavemente sem deslocar para os lados.
