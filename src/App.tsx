@@ -37,12 +37,12 @@ function App() {
         onSelectItem={scrollToSection}
       />
 
-      <div className="flex-grow w-full px-4 sm:px-6 md:px-8">
-        <section id="home" className="scroll-mt-24">
+      <div className="grow w-full px-4 sm:px-6 md:px-8">
+        <section id="home" className="scroll-mt-24 min-h-[85vh] flex items-center justify-center">
           <InteractiveContainer showHotspots={isMenuOpen} onSelectHotspot={closeMenu} />
         </section>
 
-        <section id="sobre" className="scroll-mt-24">
+        <section id="sobre" className="scroll-mt-24 -mt-10 min-[454.55px]:max-[960px]:mt-30 md:mt-40 lg:mt-50">
           <Sobre />
         </section>
 
