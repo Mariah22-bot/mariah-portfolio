@@ -1,8 +1,170 @@
+import { FaGithub, FaCode, FaBookOpen } from "react-icons/fa";
+
 export const Projetos = () => {
+  const githubUrl = "https://github.com/seu-usuario";
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-8">
-      <h1>Projetos</h1>
-      <p>Lista de projetos</p>
-    </div>
-  )
-}
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-20">
+
+      {/* Glow */}
+
+      <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-[#F60002]/5 blur-[150px]" />
+
+      <div className="absolute right-0 bottom-20 h-72 w-72 rounded-full bg-[#F60002]/5 blur-[150px]" />
+
+      <div className="mx-auto flex w-full max-w-6xl flex-col items-center">
+
+        {/* Título */}
+
+        <h1 className="text-4xl md:text-7xl font-black uppercase tracking-[10px] text-[#550542] drop-shadow-[0_0_18px_rgba(85,5,66,0.90)]">
+          Projetos
+        </h1>
+
+        <div className="mt-5 h-0.5 w-36 rounded-full bg-[#F60002]/50" />
+
+        <p className="mt-8 max-w-2xl text-center text-xl leading-9 text-[#0000F6]/85">
+          Esse portifólio é meu primeiro projeto desenvolvido do zero.
+        </p>
+
+        {/* Card Principal */}
+
+        <article
+          className="
+                        mt-14
+                        w-full
+                        rounded-3xl
+                        border
+                        border-[#F60002]/15
+                        bg-[#F60002]/5
+                        p-10
+                        md:p-14
+                        backdrop-blur-xl
+                        shadow-[0_15px_50px_rgba(0,0,0,.35)]
+                    "
+        >
+          <div className="flex flex-col items-center text-center">
+
+            <FaGithub className="text-7xl text-[#F60002]" />
+
+            <h2 className="mt-8 text-4xl font-bold text-[#F60002]">
+              Meu GitHub
+            </h2>
+
+            <p className="mt-8 max-w-3xl text-lg leading-9 text-[#0000F6]/85">
+              Estou no início da minha jornada como desenvolvedora.
+              Por isso, ainda estou construindo meus próprios
+              projetos e consolidando meus conhecimentos.
+
+              <br />
+              <br />
+
+              Enquanto isso, compartilho no GitHub alguns projetos desenvolvidos
+              acompanhando cursos e estudos práticos. Eles mostram
+              minha evolução, dedicação e vontade constante de
+              aprender.
+            </p>
+
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                                mt-12
+
+                                flex
+                                items-center
+                                gap-4
+
+                                rounded-2xl
+
+                                border
+                                border-[#F60002]
+
+                                bg-[#F60002]/10
+
+                                px-10
+                                py-5
+
+                                text-xl
+                                font-semibold
+
+                                text-[#F60002]
+
+                                transition-all
+                                duration-500
+
+                                hover:-translate-y-2
+                                hover:bg-[#F60002]/15
+                                hover:shadow-[0_0_25px_rgba(239,217,199,.3)]
+                            "
+            >
+              <FaGithub />
+
+              Visitar GitHub
+            </a>
+
+          </div>
+
+        </article>
+
+        {/* Cards */}
+
+        <div className="mt-12 grid w-full gap-8 md:grid-cols-2">
+
+          <div
+            className="
+                            rounded-3xl
+                            border
+                            border-[#F60002]/15
+                            bg-[#F60002]/5
+                            p-8
+                            transition-all
+                            duration-300
+                            hover:border-[#F60002]/30
+                        "
+          >
+            <FaCode className="text-5xl text-[#F60002]" />
+
+            <h3 className="mt-6 text-2xl font-bold text-[#F60002]">
+              Prática Constante
+            </h3>
+
+            <p className="mt-5 text-lg leading-8 text-[#0000F6]/85">
+              Cada repositório representa um passo na minha
+              evolução como desenvolvedora e um novo desafio
+              superado.
+            </p>
+          </div>
+
+          <div
+            className="
+                            rounded-3xl
+                            border
+                            border-[#F60002]/15
+                            bg-[#F60002]/5
+                            p-8
+                            transition-all
+                            duration-300
+                            hover:border-[#F60002]/30
+                        "
+          >
+            <FaBookOpen className="text-5xl text-[#F60002]" />
+
+            <h3 className="mt-6 text-2xl font-bold text-[#F60002]">
+              Aprendizado Contínuo
+            </h3>
+
+            <p className="mt-5 text-lg leading-8 text-[#0000F6]/85">
+              Estou sempre estudando novas tecnologias, boas
+              práticas e buscando evoluir para construir projetos
+              cada vez mais completos.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+  );
+};

@@ -14,7 +14,7 @@ export const Sobre = () => {
                     Sobre
                 </h1>
 
-                <div className="mt-5 h-[2px] w-32 rounded-full bg-[#550542]/50" />
+                <div className="mt-5 h-0.5 w-32 rounded-full bg-[#F60002]/50" />
 
                 {/* Card */}
 
