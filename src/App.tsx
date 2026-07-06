@@ -37,21 +37,21 @@ function App() {
         onSelectItem={scrollToSection}
       />
 
-      <section id="home" className="scroll-mt-24">
-        <InteractiveContainer showHotspots={isMenuOpen} onSelectHotspot={closeMenu} />
-      </section>
+      <div className="flex-grow w-full px-4 sm:px-6 md:px-8">
+        <section id="home" className="scroll-mt-24">
+          <InteractiveContainer showHotspots={isMenuOpen} onSelectHotspot={closeMenu} />
+        </section>
 
-      <section id="sobre" className="scroll-mt-24">
-        <Sobre />
-      </section>
+        <section id="sobre" className="scroll-mt-24">
+          <Sobre />
+        </section>
 
-      <section id="projetos" className="scroll-mt-24">
-        <Projetos />
-      </section>
+        <section id="projetos" className="scroll-mt-24">
+          <Projetos />
+        </section>
+      </div>
 
-      <section id="contato" className="scroll-mt-24">
-        <Contato />
-      </section>
+      <Contato />
     </Main>
   )
 }
