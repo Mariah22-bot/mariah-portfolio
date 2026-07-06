@@ -1,5 +1,4 @@
 import imagemCentral from "../../../assets/images/imagem-central.png";
-import { useNavigate } from 'react-router-dom'
 
 type InteractiveContainerProps = {
     showHotspots?: boolean;
@@ -7,7 +6,13 @@ type InteractiveContainerProps = {
 };
 
 export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: InteractiveContainerProps) => {
-    const navigate = useNavigate()
+    const scrollToSection = (section: 'sobre' | 'projetos' | 'contato') => {
+        const target = document.getElementById(section)
+        if (!target) return
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        onSelectHotspot?.()
+    }
+
     // Mostrar as animações (animate-float) enquanto o menu estiver fechado.
     // showHotspots === true significa menu aberto, então invertemos.
     const shouldRevealHair = !showHotspots;
@@ -33,11 +38,10 @@ export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: 
                     {/* ------------------------------------------------------------- */}
                     {/* HOTSPOT DA BOCA (CONTATO) */}
                     {/* ------------------------------------------------------------- */}
-                    <a href="contato" className="group cursor-pointer focus-visible:outline-none"
+                    <a href="#contato" className="group cursor-pointer focus-visible:outline-none"
                         onClick={(event) => {
                             event.preventDefault();
-                            onSelectHotspot?.();
-                            navigate('/contato');
+                            scrollToSection('contato');
                         }}
                     >
 
@@ -99,11 +103,10 @@ export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: 
                     {/* ------------------------------------------------------------- */}
                     {/* HOTSPOT DO OLHO ESQUERDO (SOBRE MIM)                          */}
                     {/* ------------------------------------------------------------- */}
-                    <a href="sobre" className="group cursor-pointer focus-visible:outline-none"
+                    <a href="#sobre" className="group cursor-pointer focus-visible:outline-none"
                         onClick={(event) => {
                             event.preventDefault();
-                            onSelectHotspot?.();
-                            navigate('/sobre');
+                            scrollToSection('sobre');
                         }}
                     >
                         {/* 
@@ -158,7 +161,12 @@ export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: 
 
                     {/* HOTSPOT DO OLHO DIREITO (SOBRE MIM) */}
 
-                    <a href="sobre" className="group">
+                    <a href="#sobre" className="group cursor-pointer focus-visible:outline-none"
+                        onClick={(event) => {
+                            event.preventDefault();
+                            scrollToSection('sobre');
+                        }}
+                    >
                         <g className="">
                             <g
                                 className={`fill-none transition-all duration-500 origin-[365px_577px] group-hover:scale-110
@@ -214,11 +222,10 @@ export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: 
 
                     {/* HOTSPOT DO CACHO DE CABELO CENTRAL (PROJETOS) */}
 
-                    <a href="projetos" className="group cursor-pointer focus-visible:outline-none"
+                    <a href="#projetos" className="group cursor-pointer focus-visible:outline-none"
                         onClick={(event) => {
                             event.preventDefault();
-                            onSelectHotspot?.();
-                            navigate('/projetos');
+                            scrollToSection('projetos');
                         }}
                     >
 
@@ -272,11 +279,10 @@ export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: 
                     {/* ------------------------------------------------------------- */}
                     {/* HOTSPOT DO CACHO DE CABELO ESQUERDO (DIAGONAL) */}
                     {/* ------------------------------------------------------------- */}
-                    <a href="projetos" className="group cursor-pointer focus-visible:outline-none"
+                    <a href="#projetos" className="group cursor-pointer focus-visible:outline-none"
                         onClick={(event) => {
                             event.preventDefault();
-                            onSelectHotspot?.();
-                            navigate('/projetos');
+                            scrollToSection('projetos');
                         }}
                     >
                         {/* Camada de animação contínua (Pulso) */}
@@ -333,11 +339,10 @@ export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: 
                     {/* ------------------------------------------------------------- */}
                     {/* HOTSPOT DO CACHO DE CABELO DIREITO (DIAGONAL)                 */}
                     {/* ------------------------------------------------------------- */}
-                    <a href="projetos" className="group cursor-pointer focus-visible:outline-none"
+                    <a href="#projetos" className="group cursor-pointer focus-visible:outline-none"
                         onClick={(event) => {
                             event.preventDefault();
-                            onSelectHotspot?.();
-                            navigate('/projetos');
+                            scrollToSection('projetos');
                         }}
                     >
                         {/* Camada de animação contínua (Pulso) */}

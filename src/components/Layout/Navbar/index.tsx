@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom'
 import logoImg from "../../../assets/images/logo.png";
 import menuImg from "../../../assets/images/menu.png";
 
@@ -6,17 +5,17 @@ type NavbarProps = {
     isOpen: boolean;
     onToggleMenu: () => void;
     onCloseMenu: () => void;
+    onHomeClick: () => void;
 };
 
-export const NavBar = ({ isOpen, onToggleMenu, onCloseMenu }: NavbarProps) => {
-    const navigate = useNavigate()
+export const NavBar = ({ isOpen, onToggleMenu, onCloseMenu, onHomeClick }: NavbarProps) => {
 
     return (
         <nav className="relative z-50 w-full">
             <div className="absolute left-0 top-0 z-50 flex w-full items-center justify-between px-2 pt-3">
                 <button
                     type="button"
-                    onClick={() => navigate('/')}
+                    onClick={onHomeClick}
                     className="rounded-full p-2 transition-transform hover:scale-105 focus:outline-none"
                     aria-label="Voltar para página principal"
                 >

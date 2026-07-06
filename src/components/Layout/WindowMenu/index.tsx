@@ -1,10 +1,9 @@
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom"
 
 type WindowMenuProps = {
     isOpen: boolean;
     onClose: () => void;
-    onSelectItem: (item: "projetos" | "sobre" | "contato") => void;
+    onSelectItem: (item: "home" | "projetos" | "sobre" | "contato") => void;
 };
 
 export const WindowMenu = ({ isOpen, onClose, onSelectItem }: WindowMenuProps) => {
@@ -45,7 +44,7 @@ export const WindowMenu = ({ isOpen, onClose, onSelectItem }: WindowMenuProps) =
         return null;
     }
 
-    const handleSelect = (item: "projetos" | "sobre" | "contato") => {
+    const handleSelect = (item: "home" | "projetos" | "sobre" | "contato") => {
         onSelectItem(item);
         onClose();
     };
@@ -74,32 +73,35 @@ export const WindowMenu = ({ isOpen, onClose, onSelectItem }: WindowMenuProps) =
                         className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer"
                     > */}
 
-                    <Link
-                        to="/projetos"
+                    <button
+                        type="button"
                         onClick={() => handleSelect('projetos')}
-                        className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer">
+                        className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer"
+                    >
                         <span className="block text-4xl font-semibold text-cyan-200">
                             Projetos
                         </span>
-                    </Link>
+                    </button>
 
-                    <Link
-                        to="/sobre"
+                    <button
+                        type="button"
                         onClick={() => handleSelect('sobre')}
-                        className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer">
+                        className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer"
+                    >
                         <span className="block text-4xl font-semibold text-cyan-200">
                             Sobre
                         </span>
-                    </Link>
+                    </button>
 
-                    <Link
-                        to="/contato"
+                    <button
+                        type="button"
                         onClick={() => handleSelect('contato')}
-                        className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer">
+                        className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer"
+                    >
                         <span className="block text-4xl font-semibold text-cyan-200">
                             Contato
                         </span>
-                    </Link>
+                    </button>
 
                 </div>
             </div>
