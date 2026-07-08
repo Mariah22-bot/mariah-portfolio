@@ -16,11 +16,11 @@ export const Projetos = () => {
 
         {/* Título */}
 
-        <h1 className="text-3xl md:text-7xl font-black uppercase tracking-[10px] text-[#19a6b9] drop-shadow-[0_0_18px_rgba(43,191,210,0.90)]">
+        <h1 className="text-3xl md:text-7xl font-black uppercase tracking-[10px] text-[#EFD9C7] drop-shadow-[0_0_10px_rgba(43,11,210,0.90)]">
           Projetos
         </h1>
 
-        <div className="mt-5 h-0.5 w-36 rounded-full bg-[#19a6b9]/80" />
+        <div className="mt-5 h-0.5 w-36 rounded-full bg-[#3e1de0]/80" />
 
         {/* Card Principal */}
 

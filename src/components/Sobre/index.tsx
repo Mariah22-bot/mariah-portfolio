@@ -2,27 +2,23 @@ import { FaCode } from "react-icons/fa";
 
 export const Sobre = () => {
     return (
-        <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6">
+        <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-4 sm:py-10 md:py-12 max-[680px]:items-start max-[680px]:justify-start max-[680px]:pt-24 max-[600px]:pt-28 max-[520px]:pt-32">
 
-            {/* Glow */}
-            <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-[#550542]/5 blur-[150px]" />
-            <div className="absolute right-0 bottom-20 h-72 w-72 rounded-full bg-[#550542]/5 blur-[150px]" />
-
-            <div className="mx-auto flex w-full max-w-5xl flex-col items-center">
+            <div className="mx-auto flex w-full max-w-5xl flex-col items-center pt-0 sm:pt-6 md:pt-0">
 
                 {/* Título */}
 
-                <h1 className="text-5xl md:text-7xl font-black uppercase tracking-[10px] text-[#19a6b9] drop-shadow-[0_0_18px_rgba(43,191,210,0.90)]">
+                <h1 className="text-5xl md:text-7xl font-black uppercase tracking-[10px] text-[#EFD9C7] drop-shadow-[0_0_25px_rgba(43,11,210,1)]">
                     Sobre
                 </h1>
 
-                <div className="mt-5 h-0.5 w-32 rounded-full bg-[#19a6b9]/80" />
+                <div className="mt-5 h-0.5 w-32 rounded-full bg-[#3e1de0]" />
 
                 {/* Card */}
 
                 <article
                     className="
-                        mt-14
+                        mt-10 sm:mt-12 md:mt-14
                         w-full
                         rounded-3xl
                         border
@@ -39,7 +35,7 @@ export const Sobre = () => {
 
                     <section className="space-y-6">
 
-                        <h2 className="text-3xl font-bold text-[#f20e4f]">
+                        <h2 className="text-center text-3xl font-bold text-[#f20e4f]">
                             Quem sou eu?
                         </h2>
 

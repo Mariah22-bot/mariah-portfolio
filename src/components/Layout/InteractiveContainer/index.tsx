@@ -20,7 +20,7 @@ export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: 
     const shouldRevealMouth = !showHotspots;
 
     return (
-        <div className="absolute inset-x-0 top-20 z-10 flex justify-center sm:top-16 md:top-12 lg:top-8">
+        <div className="absolute inset-x-0 top-20 z-10 flex justify-center sm:top-16 md:top-12 lg:top-8 max-[680px]:top-28 max-[600px]:top-32 max-[520px]:top-36">
             {/* Container Pai: Limita o tamanho máximo na tela */}
             <div className="w-full max-w-[min(90vw,37.5rem)] aspect-square animate-fade-in sm:max-w-lg md:max-w-xl lg:max-w-160">
                 <svg
