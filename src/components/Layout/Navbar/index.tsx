@@ -11,12 +11,12 @@ type NavbarProps = {
 export const NavBar = ({ isOpen, onToggleMenu, onCloseMenu, onHomeClick }: NavbarProps) => {
 
     return (
-        <nav className="relative z-50 w-full">
-            <div className="absolute left-0 top-0 z-50 flex w-full items-center justify-between px-2 pt-3">
+        <nav className="fixed left-0 top-0 z-50 w-full">
+            <div className="flex w-full items-center justify-between px-2 pt-3">
                 <button
                     type="button"
                     onClick={onHomeClick}
-                    className="rounded-full p-2 transition-transform hover:scale-105 focus:outline-none"
+                    className="rounded-full p-2 transition-transform duration-300 ease-out hover:scale-[1.15] active:scale-[0.97] focus:outline-none"
                     aria-label="Voltar para página principal"
                 >
                     <img
@@ -29,7 +29,7 @@ export const NavBar = ({ isOpen, onToggleMenu, onCloseMenu, onHomeClick }: Navba
                 <button
                     type="button"
                     onClick={isOpen ? onCloseMenu : onToggleMenu}
-                    className="rounded-full p-2 transition-transform hover:scale-105 focus:outline-none cursor-pointer botao-menu-sanduiche"
+                    className="rounded-full p-2 transition-transform duration-300 ease-out hover:scale-[1.15] active:scale-[0.97] focus:outline-none cursor-pointer botao-menu-sanduiche"
                     aria-label="Abrir menu"
                     aria-expanded={isOpen}
                 >

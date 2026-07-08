@@ -16,15 +16,11 @@ export const Projetos = () => {
 
         {/* Título */}
 
-        <h1 className="text-4xl md:text-7xl font-black uppercase tracking-[10px] text-[#550542] drop-shadow-[0_0_18px_rgba(85,5,66,0.90)]">
+        <h1 className="text-3xl md:text-7xl font-black uppercase tracking-[10px] text-[#19a6b9] drop-shadow-[0_0_18px_rgba(43,191,210,0.90)]">
           Projetos
         </h1>
 
-        <div className="mt-5 h-0.5 w-36 rounded-full bg-[#f20e4f]/50" />
-
-        <p className="mt-8 max-w-2xl text-center text-xl leading-9 text-[#0000F6]/85">
-          Esse portifólio é meu primeiro projeto desenvolvido do zero.
-        </p>
+        <div className="mt-5 h-0.5 w-36 rounded-full bg-[#19a6b9]/80" />
 
         {/* Card Principal */}
 
@@ -102,6 +98,30 @@ export const Projetos = () => {
 
               Visitar GitHub
             </a>
+
+            {/* Encerramento */}
+            <section
+              className="
+                            mt-16
+                            rounded-2xl
+                            border
+                            border-[#f20e4f]/15
+                            bg-[#f20e4f]/5
+                            p-5
+                        "
+            >
+
+              <h2 className="text-3xl font-bold text-[#f20e4f]">
+                Obrigada pela visita!
+              </h2>
+
+              <p className="mt-6 text-lg leading-9 text-[#0000F6]/85">
+                E se você chegou até aqui, quero te agradecer por
+                dedicar um tempo para conhecer um pouco mais sobre
+                mim.
+              </p>
+
+            </section>
 
           </div>
 

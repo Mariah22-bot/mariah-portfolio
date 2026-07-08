@@ -12,11 +12,11 @@ export const Sobre = () => {
 
                 {/* Título */}
 
-                <h1 className="text-5xl md:text-7xl font-black uppercase tracking-[10px] text-[#550542] drop-shadow-[0_0_18px_rgba(85,5,66,0.90)]">
+                <h1 className="text-5xl md:text-7xl font-black uppercase tracking-[10px] text-[#19a6b9] drop-shadow-[0_0_18px_rgba(43,191,210,0.90)]">
                     Sobre
                 </h1>
 
-                <div className="mt-5 h-0.5 w-32 rounded-full bg-[#f20e4f]/50" />
+                <div className="mt-5 h-0.5 w-32 rounded-full bg-[#19a6b9]/80" />
 
                 {/* Card */}
 
@@ -26,9 +26,9 @@ export const Sobre = () => {
                         w-full
                         rounded-3xl
                         border
-                        border-[#f20e4f]/15
-                        bg-[#f20e4f]/5
-                        p-8
+                        border-[#19a6b9]/15
+                        bg-[#19a6b9]/5
+                        p-5
                         md:p-14
                         backdrop-blur-xl
                         shadow-[0_15px_50px_rgba(0,0,0,.35)]
@@ -102,8 +102,7 @@ export const Sobre = () => {
                             Confesso que estou engatinhando ainda no mundo do
                             desenvolvimento, e este portfólio é uma forma de
                             mostrar o que já aprendi e o que ainda estou
-                            aprendendo, pois este é o primeiro projeto que faço
-                            sozinha.
+                            aprendendo, ele é meu primeiro projeto desenvolvido do zero.
                         </p>
 
                         <p className="text-lg leading-9 text-[#0000F6]/85">
@@ -118,7 +117,7 @@ export const Sobre = () => {
 
                     <section className="mt-14 space-y-6">
 
-                        <div className="flex flex-row items-center gap-4">
+                        <div className="flex flex-col md:flex-row lg:flex-row items-center gap-4">
                             <FaCode className="text-5xl text-[#f20e4f]" />
 
                             <h2 className="text-3xl font-bold text-[#f20e4f]">
@@ -162,30 +161,6 @@ export const Sobre = () => {
                                 Desenvolvimento Front-end, Web Design Responsivo, APIs REST.
                             </li>
                         </ul>
-
-                    </section>
-
-                    {/* Encerramento */}
-                    <section
-                        className="
-                            mt-16
-                            rounded-2xl
-                            border
-                            border-[#f20e4f]/15
-                            bg-[#f20e4f]/5
-                            p-8
-                        "
-                    >
-
-                        <h2 className="text-3xl font-bold text-[#f20e4f]">
-                            Obrigada pela visita!
-                        </h2>
-
-                        <p className="mt-6 text-lg leading-9 text-[#0000F6]/85">
-                            E se você chegou até aqui, quero te agradecer por
-                            dedicar um tempo para conhecer um pouco mais sobre
-                            mim.
-                        </p>
 
                     </section>
 
