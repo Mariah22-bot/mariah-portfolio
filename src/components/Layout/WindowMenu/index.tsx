@@ -75,21 +75,21 @@ export const WindowMenu = ({ isOpen, onClose, onSelectItem }: WindowMenuProps) =
 
                     <button
                         type="button"
-                        onClick={() => handleSelect('projetos')}
-                        className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer"
-                    >
-                        <span className="block text-4xl font-semibold text-cyan-200">
-                            Projetos
-                        </span>
-                    </button>
-
-                    <button
-                        type="button"
                         onClick={() => handleSelect('sobre')}
                         className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer"
                     >
                         <span className="block text-4xl font-semibold text-cyan-200">
                             Sobre
+                        </span>
+                    </button>
+
+                    <button
+                        type="button"
+                        onClick={() => handleSelect('projetos')}
+                        className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer"
+                    >
+                        <span className="block text-4xl font-semibold text-cyan-200">
+                            Projetos
                         </span>
                     </button>
 

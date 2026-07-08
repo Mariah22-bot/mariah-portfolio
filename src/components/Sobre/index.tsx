@@ -1,3 +1,5 @@
+import { FaCode } from "react-icons/fa";
+
 export const Sobre = () => {
     return (
         <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6">
@@ -14,7 +16,7 @@ export const Sobre = () => {
                     Sobre
                 </h1>
 
-                <div className="mt-5 h-0.5 w-32 rounded-full bg-[#F60002]/50" />
+                <div className="mt-5 h-0.5 w-32 rounded-full bg-[#f20e4f]/50" />
 
                 {/* Card */}
 
@@ -24,8 +26,8 @@ export const Sobre = () => {
                         w-full
                         rounded-3xl
                         border
-                        border-[#F60002]/15
-                        bg-[#F60002]/5
+                        border-[#f20e4f]/15
+                        bg-[#f20e4f]/5
                         p-8
                         md:p-14
                         backdrop-blur-xl
@@ -37,7 +39,7 @@ export const Sobre = () => {
 
                     <section className="space-y-6">
 
-                        <h2 className="text-3xl font-bold text-[#F60002]">
+                        <h2 className="text-3xl font-bold text-[#f20e4f]">
                             Quem sou eu?
                         </h2>
 
@@ -86,7 +88,7 @@ export const Sobre = () => {
 
                     <section className="mt-14 space-y-8">
 
-                        <h2 className="text-3xl font-bold text-[#F60002]">
+                        <h2 className="text-3xl font-bold text-[#f20e4f]">
                             O presente
                         </h2>
 
@@ -112,20 +114,70 @@ export const Sobre = () => {
 
                     </section>
 
-                    {/* Encerramento */}
+                    {/* Tecnologias */}
 
+                    <section className="mt-14 space-y-6">
+
+                        <div className="flex flex-row items-center gap-4">
+                            <FaCode className="text-5xl text-[#f20e4f]" />
+
+                            <h2 className="text-3xl font-bold text-[#f20e4f]">
+                                Tecnologias
+                            </h2>
+                        </div>
+
+                        <ul className="space-y-4 text-lg leading-9 text-[#0000F6]/85">
+                            <li>
+                                <span className="font-semibold text-[#f20e4f]">
+                                    Linguagens:
+                                </span>{' '}
+                                TypeScript, JavaScript, HTML5 e CSS3.
+                            </li>
+
+                            <li>
+                                <span className="font-semibold text-[#f20e4f]">
+                                    Biblioteca:
+                                </span>{' '}
+                                React.js.
+                            </li>
+
+                            <li>
+                                <span className="font-semibold text-[#f20e4f]">
+                                    Estilização:
+                                </span>{' '}
+                                Tailwind CSS.
+                            </li>
+
+                            <li>
+                                <span className="font-semibold text-[#f20e4f]">
+                                    Ferramentas de versionamento:
+                                </span>{' '}
+                                Git e GitHub.
+                            </li>
+
+                            <li>
+                                <span className="font-semibold text-[#f20e4f]">
+                                    Conceitos/Foco:
+                                </span>{' '}
+                                Desenvolvimento Front-end, Web Design Responsivo, APIs REST.
+                            </li>
+                        </ul>
+
+                    </section>
+
+                    {/* Encerramento */}
                     <section
                         className="
                             mt-16
                             rounded-2xl
                             border
-                            border-[#F60002]/15
-                            bg-[#F60002]/5
+                            border-[#f20e4f]/15
+                            bg-[#f20e4f]/5
                             p-8
                         "
                     >
 
-                        <h2 className="text-3xl font-bold text-[#F60002]">
+                        <h2 className="text-3xl font-bold text-[#f20e4f]">
                             Obrigada pela visita!
                         </h2>
 
@@ -144,4 +196,3 @@ export const Sobre = () => {
         </section>
     );
 };
-

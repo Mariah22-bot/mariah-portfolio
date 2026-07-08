@@ -1,4 +1,4 @@
-import { FaGithub, FaCode, FaBookOpen } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 export const Projetos = () => {
   const githubUrl = "https://github.com/seu-usuario";
@@ -8,9 +8,9 @@ export const Projetos = () => {
 
       {/* Glow */}
 
-      <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-[#F60002]/5 blur-[150px]" />
+      <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-[#f20e4f]/5 blur-[150px]" />
 
-      <div className="absolute right-0 bottom-20 h-72 w-72 rounded-full bg-[#F60002]/5 blur-[150px]" />
+      <div className="absolute right-0 bottom-20 h-72 w-72 rounded-full bg-[#f20e4f]/5 blur-[150px]" />
 
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center">
 
@@ -20,7 +20,7 @@ export const Projetos = () => {
           Projetos
         </h1>
 
-        <div className="mt-5 h-0.5 w-36 rounded-full bg-[#F60002]/50" />
+        <div className="mt-5 h-0.5 w-36 rounded-full bg-[#f20e4f]/50" />
 
         <p className="mt-8 max-w-2xl text-center text-xl leading-9 text-[#0000F6]/85">
           Esse portifólio é meu primeiro projeto desenvolvido do zero.
@@ -34,8 +34,8 @@ export const Projetos = () => {
                         w-full
                         rounded-3xl
                         border
-                        border-[#F60002]/15
-                        bg-[#F60002]/5
+                        border-[#f20e4f]/15
+                        bg-[#f20e4f]/5
                         p-10
                         md:p-14
                         backdrop-blur-xl
@@ -44,9 +44,9 @@ export const Projetos = () => {
         >
           <div className="flex flex-col items-center text-center">
 
-            <FaGithub className="text-7xl text-[#F60002]" />
+            <FaGithub className="text-7xl text-[#f20e4f]" />
 
-            <h2 className="mt-8 text-4xl font-bold text-[#F60002]">
+            <h2 className="mt-8 text-4xl font-bold text-[#f20e4f]">
               Meu GitHub
             </h2>
 
@@ -78,9 +78,9 @@ export const Projetos = () => {
                                 rounded-2xl
 
                                 border
-                                border-[#F60002]
+                                border-[#f20e4f]
 
-                                bg-[#F60002]/10
+                                bg-[#f20e4f]/10
 
                                 px-10
                                 py-5
@@ -88,13 +88,13 @@ export const Projetos = () => {
                                 text-xl
                                 font-semibold
 
-                                text-[#F60002]
+                                text-[#f20e4f]
 
                                 transition-all
                                 duration-500
 
                                 hover:-translate-y-2
-                                hover:bg-[#F60002]/15
+                                hover:bg-[#f20e4f]/15
                                 hover:shadow-[0_0_25px_rgba(239,217,199,.3)]
                             "
             >
@@ -106,62 +106,6 @@ export const Projetos = () => {
           </div>
 
         </article>
-
-        {/* Cards */}
-
-        <div className="mt-12 grid w-full gap-8 md:grid-cols-2">
-
-          <div
-            className="
-                            rounded-3xl
-                            border
-                            border-[#F60002]/15
-                            bg-[#F60002]/5
-                            p-8
-                            transition-all
-                            duration-300
-                            hover:border-[#F60002]/30
-                        "
-          >
-            <FaCode className="text-5xl text-[#F60002]" />
-
-            <h3 className="mt-6 text-2xl font-bold text-[#F60002]">
-              Prática Constante
-            </h3>
-
-            <p className="mt-5 text-lg leading-8 text-[#0000F6]/85">
-              Cada repositório representa um passo na minha
-              evolução como desenvolvedora e um novo desafio
-              superado.
-            </p>
-          </div>
-
-          <div
-            className="
-                            rounded-3xl
-                            border
-                            border-[#F60002]/15
-                            bg-[#F60002]/5
-                            p-8
-                            transition-all
-                            duration-300
-                            hover:border-[#F60002]/30
-                        "
-          >
-            <FaBookOpen className="text-5xl text-[#F60002]" />
-
-            <h3 className="mt-6 text-2xl font-bold text-[#F60002]">
-              Aprendizado Contínuo
-            </h3>
-
-            <p className="mt-5 text-lg leading-8 text-[#0000F6]/85">
-              Estou sempre estudando novas tecnologias, boas
-              práticas e buscando evoluir para construir projetos
-              cada vez mais completos.
-            </p>
-          </div>
-
-        </div>
 
       </div>
 
