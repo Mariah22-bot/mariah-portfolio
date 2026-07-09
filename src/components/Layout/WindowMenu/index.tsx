@@ -7,21 +7,15 @@ type WindowMenuProps = {
 };
 
 export const WindowMenu = ({ isOpen, onClose, onSelectItem }: WindowMenuProps) => {
-    // Criamos uma referência para a caixinha do menu
     const menuRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        // Se o menu não estiver aberto, não precisamos monitorar os cliques
         if (!isOpen) return;
 
         const handleClickOutside = (event: MouseEvent) => {
-
             const target = event.target as HTMLElement;
-
-            // 1. Verifica se o clique foi na imagem ou no botão do sanduíche
             const clicouNoSanduiche = target.closest(".botao-menu-sanduiche");
 
-            // 2. Se o clique foi fora do menu E não foi no botão sanduíche, fecha!
             if (
                 menuRef.current &&
                 !menuRef.current.contains(target) &&
@@ -31,10 +25,7 @@ export const WindowMenu = ({ isOpen, onClose, onSelectItem }: WindowMenuProps) =
             }
         };
 
-        // Adiciona o ouvinte de clique na página inteira
         document.addEventListener("mousedown", handleClickOutside);
-
-        // Limpa o ouvinte quando o componente fecha ou desmonta (evita vazamento de memória)
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
@@ -51,34 +42,34 @@ export const WindowMenu = ({ isOpen, onClose, onSelectItem }: WindowMenuProps) =
 
     return (
         /* 
-          Agora a div externa não tem background nem intercepta cliques, 
-          ela serve apenas para posicionar o menu de forma fixa.
+          1. No mobile: centralizado na tela cheia.
+          2. No md/lg: muda para o topo direito, alinhado logo abaixo do local esperado do sanduíche.
         */
-        <div className="fixed inset-0 z-40 flex items-center justify-center p-4 pointer-events-none">
+        <div className="fixed inset-0 z-40 flex items-center justify-center p-4 pointer-events-none 
+        md:inset-auto md:right-6 md:top-20 md:p-0
+        ">
 
             {/* 
-              Adicionamos a ref e 'pointer-events-auto' para que os cliques 
-              voltem a funcionar normalmente dentro do menu 
+              A caixinha do menu:
+              - md:max-w-xs -> Faz o menu ficar bem menor no computador.
+              - md:before -> Cria o triângulo do balão de fala apontando para cima.
             */}
             <div
                 ref={menuRef}
-                className="w-full max-w-3xl rounded-4xl border border-white/10 bg-white/10 p-6 shadow-2xl shadow-slate-950/40 backdrop-blur-3xl pointer-events-auto"
+                className="relative w-full max-w-3xl rounded-4xl border border-white/10 bg-white/10 p-6 shadow-2xl shadow-slate-950/40 backdrop-blur-3xl pointer-events-auto transition-all duration-300
+                "
             >
-                <div className="mb-6 flex items-center justify-between gap-4"></div>
+                <div className="mb-6 flex items-center justify-between gap-4 md:hidden"></div>
 
-                <div className="grid gap-4 md:grid-cols-3">
-                    {/* <button
-                        type="button"
-                        onClick={() => handleSelect("projetos")}
-                        className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer"
-                    > */}
+                {/* No mobile mantém grid, mas a partir do md empilha os botões como uma lista de menu convencional */}
+                <div className="grid gap-4 md:grid-cols-1 md:gap-2">
 
                     <button
                         type="button"
                         onClick={() => handleSelect('sobre')}
-                        className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer"
+                        className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer md:rounded-xl md:p-3 md:justify-start"
                     >
-                        <span className="block text-4xl font-semibold text-cyan-200">
+                        <span className="block text-4xl font-semibold text-cyan-200 md:text-lg">
                             Sobre
                         </span>
                     </button>
@@ -86,9 +77,9 @@ export const WindowMenu = ({ isOpen, onClose, onSelectItem }: WindowMenuProps) =
                     <button
                         type="button"
                         onClick={() => handleSelect('projetos')}
-                        className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer"
+                        className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer md:rounded-xl md:p-3 md:justify-start"
                     >
-                        <span className="block text-4xl font-semibold text-cyan-200">
+                        <span className="block text-4xl font-semibold text-cyan-200 md:text-lg">
                             Projetos
                         </span>
                     </button>
@@ -96,9 +87,9 @@ export const WindowMenu = ({ isOpen, onClose, onSelectItem }: WindowMenuProps) =
                     <button
                         type="button"
                         onClick={() => handleSelect('contato')}
-                        className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer"
+                        className="rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-left transition hover:border-cyan-400/60 hover:bg-slate-950/90 flex justify-center cursor-pointer md:rounded-xl md:p-3 md:justify-start"
                     >
-                        <span className="block text-4xl font-semibold text-cyan-200">
+                        <span className="block text-4xl font-semibold text-cyan-200 md:text-lg">
                             Contato
                         </span>
                     </button>
