@@ -6,23 +6,17 @@ export const Projetos = () => {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-20">
 
-      {/* Glow */}
-
       <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-[#f20e4f]/5 blur-[150px]" />
 
       <div className="absolute right-0 bottom-20 h-72 w-72 rounded-full bg-[#f20e4f]/5 blur-[150px]" />
 
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center">
 
-        {/* Título */}
-
         <h1 className="text-3xl md:text-7xl font-black uppercase tracking-[10px] text-[#EFD9C7] drop-shadow-[0_0_10px_rgba(43,11,210,0.90)]">
           Projetos
         </h1>
 
         <div className="mt-5 h-0.5 w-36 rounded-full bg-[#3e1de0]/80" />
-
-        {/* Card Principal */}
 
         <article
           className="
@@ -99,7 +93,6 @@ export const Projetos = () => {
               Visitar GitHub
             </a>
 
-            {/* Encerramento */}
             <section
               className="
                             mt-16

@@ -2,34 +2,24 @@
 @import "tailwindcss";
 
 @theme {
-  /* Cores Base (Minimalistas) */
   --color-background: #EFD9C7;
   --color-surface: #EFD9C7;
 
-  /* Efeitos de Brilho (Glow) para os Hotspots */
   --color-glow-eye: hsl(180, 100%, 70%);
   --color-glow-textEye: hsl(180, 100%, 20%);
 
-  /* Tom ciano/neon sutil */
   --color-glow-mouth: hsl(300, 100%, 70%);
   --color-glow-textMouth: hsl(300, 100%, 40%);
 
-  /* Tom rosa/comunicação */
   --color-glow-hair: hsl(250, 100%, 70%);
   --color-glow-textHair: hsl(250, 100%, 50%);
 
-  /* Tom roxo/criatividade */
-
-  /* Tipografia */
   --font-display: "Ubuntu", sans-serif;
 
-  /* Animações Customizadas para a UI Interativa */
   --animate-pulse-glow: pulseGlow 2s infinite ease-in-out;
-  /* Animação float: mais lenta para movimento mais suave */
   --animate-float: float 6s infinite ease-in-out;
 }
 
-/* Importação das Fontes */
 @font-face {
   font-family: "Ubuntu";
   font-style: normal;
@@ -46,7 +36,6 @@
   src: url("/assets/fonts/ubuntu-medium-500.woff2") format("woff2");
 }
 
-/* Animações nativas via Keyframes */
 @keyframes pulseGlow {
 
   0%,
@@ -68,13 +57,11 @@
     transform: translateY(0) scale(1);
   }
 
-  /* maior deslocamento vertical e leve escala para sensação mais dinâmica */
   50% {
     transform: translateY(-12px) scale(1.02);
   }
 }
 
-/* Estilos Globais e Acessibilidade */
 body {
   font-family: 'Orbitron', var(--font-display);
   background-color: var(--color-background);
@@ -83,13 +70,11 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Reset sutil para garantir foco visível na navegação por teclado */
 *:focus-visible {
   outline: 2px solid var(--color-glow-eye);
   outline-offset: 4px;
 }
 
-/* Respeito à preferência de redução de movimento do usuário */
 @media (prefers-reduced-motion: reduce) {
 
   *,

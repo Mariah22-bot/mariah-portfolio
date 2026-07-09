@@ -53,7 +53,6 @@ export const Contato = () => {
             id="contato"
             className=" scroll-mt-0 min-h-screen w-full relative overflow-hidden bg-linear-to-b from-[#a057e1] via-[#8769a5] to-black shrink-0 flex flex-col justify-between"
         >
-            {/* Glow */}
             <div
                 className={`absolute left-0 top-0 rounded-full bg-[#EFD9C7]/10 blur-[160px] transition-all duration-2000 ease-out ${isVisible ? "h-96 w-96 opacity-100 scale-150" : "h-72 w-72 opacity-50 scale-50"
                     }`}
@@ -68,8 +67,6 @@ export const Contato = () => {
                 className={`mx-auto flex max-w-7xl grow w-full flex-col items-center justify-center gap-12 px-8 py-16 md:flex-row lg:flex-row md:justify-between transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                     }`}
             >
-                {/* Texto */}
-
                 <div className="text-center lg:text-left flex flex-col gap-4">
                     <h2
                         className={`text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-[8px] text-[#EFD9C7] drop-shadow-[0_0_18px_rgba(239,217,199,0.45)] transition-all duration-1000 ease-out transform ${isVisible ? "translate-y-0 opacity-100 scale-100" : "translate-y-10 opacity-0 scale-95"
@@ -85,8 +82,6 @@ export const Contato = () => {
                         Entre em contato e vamos criar algo incrível juntos.
                     </p>
                 </div>
-
-                {/* Redes */}
 
                 <div
                     className={`flex flex-row gap-5 items-center justify-center transition-all duration-1000 delay-500 ease-out transform ${isVisible ? "translate-y-0 opacity-100 scale-100" : "translate-y-10 opacity-0 scale-75"
@@ -138,8 +133,6 @@ export const Contato = () => {
                 </div>
 
             </div>
-
-            {/* Linha inferior */}
 
             <div className="border-t border-[#EFD9C7]/10 w-full shrink-0">
                 <div className="mx-auto flex max-w-7xl items-center justify-center py-4">

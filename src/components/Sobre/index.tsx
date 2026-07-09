@@ -6,15 +6,11 @@ export const Sobre = () => {
 
             <div className="mx-auto flex w-full max-w-5xl flex-col items-center pt-0 sm:pt-6 md:pt-0">
 
-                {/* Título */}
-
                 <h1 className="text-5xl md:text-7xl font-black uppercase tracking-[10px] text-[#EFD9C7] drop-shadow-[0_0_25px_rgba(43,11,210,1)]">
                     Sobre
                 </h1>
 
                 <div className="mt-5 h-0.5 w-32 rounded-full bg-[#3e1de0]" />
-
-                {/* Card */}
 
                 <article
                     className="
@@ -31,8 +27,6 @@ export const Sobre = () => {
                     "
                 >
 
-                    {/* Introdução */}
-
                     <section className="space-y-6">
 
                         <h2 className="text-center text-3xl font-bold text-[#f20e4f]">
@@ -45,8 +39,6 @@ export const Sobre = () => {
                         </p>
 
                     </section>
-
-                    {/* Reflexões */}
 
                     <section className="mt-12">
 
@@ -80,8 +72,6 @@ export const Sobre = () => {
 
                     </section>
 
-                    {/* Desenvolvimento */}
-
                     <section className="mt-14 space-y-8">
 
                         <h2 className="text-3xl font-bold text-[#f20e4f]">
@@ -108,8 +98,6 @@ export const Sobre = () => {
                         </p>
 
                     </section>
-
-                    {/* Tecnologias */}
 
                     <section className="mt-14 space-y-6">
 

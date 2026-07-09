@@ -6,8 +6,7 @@ import { WindowMenu } from './components/Layout/WindowMenu'
 import { Projetos } from './components/Projetos'
 import { Sobre } from './components/Sobre'
 import { Contato } from './components/Contato'
-
-type MenuItem = 'home' | 'sobre' | 'projetos' | 'contato'
+import type { MenuItem } from './types/menu'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)

@@ -1,9 +1,10 @@
 import { useEffect, useRef } from "react";
+import type { MenuItem } from "../../../types/menu";
 
 type WindowMenuProps = {
     isOpen: boolean;
     onClose: () => void;
-    onSelectItem: (item: "home" | "projetos" | "sobre" | "contato") => void;
+    onSelectItem: (item: MenuItem) => void;
 };
 
 export const WindowMenu = ({ isOpen, onClose, onSelectItem }: WindowMenuProps) => {
@@ -35,7 +36,7 @@ export const WindowMenu = ({ isOpen, onClose, onSelectItem }: WindowMenuProps) =
         return null;
     }
 
-    const handleSelect = (item: "home" | "projetos" | "sobre" | "contato") => {
+    const handleSelect = (item: MenuItem) => {
         onSelectItem(item);
         onClose();
     };
