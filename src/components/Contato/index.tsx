@@ -13,12 +13,12 @@ const contacts: ContactItem[] = [
     {
         name: "E-mail",
         icon: FiMail,
-        href: "mailto:seuemail@exemplo.com",
+        href: "mailto:isa.bel.rodrigues.mi@gmail.com",
     },
     {
         name: "LinkedIn",
         icon: FaLinkedinIn,
-        href: "https://linkedin.com/in/seuperfil",
+        href: "https://linkedin.com/in/maria-isabel-502268195/",
     },
 ];
 

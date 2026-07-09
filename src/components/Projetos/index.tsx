@@ -1,7 +1,7 @@
 import { FaGithub } from "react-icons/fa";
 
 export const Projetos = () => {
-  const githubUrl = "https://github.com/seu-usuario";
+  const githubUrl = "https://github.com/Mariah22-bot?tab=repositories";
 
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-20">
