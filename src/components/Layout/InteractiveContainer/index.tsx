@@ -27,7 +27,7 @@ export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: 
                     viewBox="0 0 1000 1000"
                     className="w-full h-full select-none"
                 >
-                    {/* 1. A SUA ILUSTRAÇÃO COMO BASE DO SVG */}
+                    {/* ILUSTRAÇÃO COMO BASE DO SVG */}
                     <image
                         href={imagemCentral}
                         width="1000"
@@ -45,10 +45,6 @@ export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: 
                         }}
                     >
 
-                        {/* 
-                          Mudança: Adicionado 'group-hover:scale-110' e ajustado origin para o centro exato [493px_740px]
-                          para expandir suavemente sem deslocar para os lados.
-                        */}
                         <g
                             className={`fill-none transition-all duration-500 origin-[493px_740px] group-hover:scale-110
                             filter-[drop-shadow(0_0_4px_var(--color-glow-mouth))] 
@@ -109,10 +105,7 @@ export const InteractiveContainer = ({ showHotspots = false, onSelectHotspot }: 
                             scrollToSection('sobre');
                         }}
                     >
-                        {/* 
-                          Mudança: Adicionado 'group-hover:scale-110' e corrigido origin para [365px_577px] 
-                          (o centro da massa do olho esquerdo).
-                        */}
+
                         <g
                             className={`fill-none transition-all 
                             duration-500 origin-[365px_577px] group-hover:scale-110

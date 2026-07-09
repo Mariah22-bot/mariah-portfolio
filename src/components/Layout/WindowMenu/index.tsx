@@ -50,11 +50,6 @@ export const WindowMenu = ({ isOpen, onClose, onSelectItem }: WindowMenuProps) =
         md:inset-auto md:right-6 md:top-20 md:p-0
         ">
 
-            {/* 
-              A caixinha do menu:
-              - md:max-w-xs -> Faz o menu ficar bem menor no computador.
-              - md:before -> Cria o triângulo do balão de fala apontando para cima.
-            */}
             <div
                 ref={menuRef}
                 className="relative w-full max-w-3xl rounded-4xl border border-white/10 bg-white/10 p-6 shadow-2xl shadow-slate-950/40 backdrop-blur-3xl pointer-events-auto transition-all duration-300
