@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Main } from './components/Layout/Main'
-import { InteractiveContainer } from './components/Layout/InteractiveContainer'
+import { InteractiveContainer } from './components/Layout/InteractiveContainer/InteractiveContainer'
 import { NavBar } from './components/Layout/NavBar'
 import { WindowMenu } from './components/Layout/WindowMenu'
 import { Projetos } from './components/Projetos'
@@ -38,7 +38,7 @@ function App() {
 
       <div className="grow w-full px-4 sm:px-6 md:px-8">
         <section id="home" className="scroll-mt-24 min-h-[85vh] flex items-center justify-center">
-          <InteractiveContainer showHotspots={isMenuOpen} onSelectHotspot={closeMenu} />
+          <InteractiveContainer onSelectHotspot={closeMenu} />
         </section>
 
         <section id="sobre" className="scroll-mt-1 -mt-10 min-[454.55px]:max-[960px]:mt-30 md:mt-40 lg:mt-50">

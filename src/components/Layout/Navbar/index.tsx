@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import logoImg from "../../../assets/images/logo.png";
 import menuImg from "../../../assets/images/menu.png";
 
@@ -9,10 +10,41 @@ type NavbarProps = {
 };
 
 export const NavBar = ({ isOpen, onToggleMenu, onCloseMenu, onHomeClick }: NavbarProps) => {
+    // Estado para controlar se a NavBar deve ser exibida ou não
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            /* 
+              MÁGICA DO SCROLL: 
+              Se o usuário rolar mais de 300 pixels para baixo (saindo do InteractiveContainer), 
+              a barra aparece. Se voltar para o topo, ela some de novo.
+            */
+            if (window.scrollY > 300) {
+                setIsVisible(true);
+            } else {
+                setIsVisible(false);
+            }
+        };
+
+        // Adiciona o ouvinte de rolagem na janela do navegador
+        window.addEventListener("scroll", handleScroll);
+
+        // Limpa o evento ao desmontar o componente para evitar vazamento de memória
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
-        <nav className="bg-[#EFD9C7]/80 md:bg-transparent lg:bg-transparent fixed z-50 w-full">
-
+        <nav
+            /* 
+              Injetamos classes dinâmicas para fazer a transição de opacidade suave (fadeIn / fadeOut).
+              Se a barra não estiver visível (e o menu não estiver aberto), ela fica oculta e intocável.
+            */
+            className={`bg-[#EFD9C7]/80 md:bg-transparent lg:bg-transparent fixed z-50 w-full transition-all duration-500 ease-in-out ${isVisible || isOpen
+                    ? "opacity-100 translate-y-0 pointer-events-auto"
+                    : "opacity-0 -translate-y-5 pointer-events-none"
+                }`}
+        >
             <div className="flex w-full items-center justify-between px-2 pt-2">
                 <button
                     type="button"
