@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
 @import "tailwindcss";
 
@@ -5,19 +6,24 @@
   --color-background: #EFD9C7;
   --color-surface: #EFD9C7;
 
-  --color-glow-eye: hsl(180, 100%, 70%);
-  --color-glow-textEye: hsl(180, 100%, 20%);
-
-  --color-glow-mouth: hsl(300, 100%, 70%);
-  --color-glow-textMouth: hsl(300, 100%, 40%);
-
-  --color-glow-hair: hsl(250, 100%, 70%);
-  --color-glow-textHair: hsl(250, 100%, 50%);
-
   --font-display: "Ubuntu", sans-serif;
 
+  --font-cyber: "Press Start 2P", sans-serif;
+
   --animate-pulse-glow: pulseGlow 2s infinite ease-in-out;
-  --animate-float: float 6s infinite ease-in-out;
+  --animate-float: float 8s infinite ease-in-out;
+}
+
+/* ADICIONE ESTE BLOCO AQUI FORA DO @THEME */
+:root {
+  --color-glow-eye: #00f3ff;
+  --color-glow-textEye: hsl(180, 100%, 20%);
+
+  --color-glow-mouth: #ff007f;
+  --color-glow-textMouth: hsl(300, 100%, 40%);
+
+  --color-glow-hair: #9d4edd;
+  --color-glow-textHair: hsl(250, 100%, 50%);
 }
 
 @font-face {
@@ -34,6 +40,12 @@
   font-weight: 500;
   font-display: swap;
   src: url("/assets/fonts/ubuntu-medium-500.woff2") format("woff2");
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes pulseGlow {
@@ -54,11 +66,12 @@
 
   0%,
   100% {
-    transform: translateY(0) scale(1);
+    translate: 0 0;
   }
 
   50% {
-    transform: translateY(-12px) scale(1.02);
+    translate: 0 -10px;
+    /* Faz flutuar 8px para cima de forma isolada */
   }
 }
 
