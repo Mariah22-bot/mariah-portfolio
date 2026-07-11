@@ -44,7 +44,7 @@ This project explores the concept of **Navigation as UI**, replacing traditional
 ```bash
 git clone <repository-url>
 
-cd <project-name>
+cd projeto-portfolio
 
 npm install
 
