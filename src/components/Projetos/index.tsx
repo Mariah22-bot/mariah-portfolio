@@ -1,7 +1,10 @@
 import { FaGithub } from "react-icons/fa";
+import { SiVercel } from "react-icons/si";
+import { GoRepo } from "react-icons/go";
 
 export const Projetos = () => {
   const githubUrl = "https://github.com/Mariah22-bot?tab=repositories";
+  const vercelUrl = "https://vercel.com/mariah22-bots-projects";
 
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-20">
@@ -34,10 +37,10 @@ export const Projetos = () => {
         >
           <div className="flex flex-col items-center text-center">
 
-            <FaGithub className="text-7xl text-[#f20e4f]" />
+            <GoRepo className="text-5xl md:text-8xl lg:text-8xl text-[#f20e4f]" />
 
-            <h2 className="mt-8 text-4xl font-bold text-[#f20e4f]">
-              Meu GitHub
+            <h2 className="mt-8 text-2xl md:text-4xl lg:text-4xl font-bold text-[#f20e4f]">
+              Meus Repositórios
             </h2>
 
             <p className="mt-8 max-w-3xl text-lg leading-9 text-[#0000F6]/85">
@@ -48,7 +51,7 @@ export const Projetos = () => {
               <br />
               <br />
 
-              Enquanto isso, compartilho no GitHub alguns projetos desenvolvidos
+              Enquanto isso, compartilho no GitHub e na Vercel alguns projetos desenvolvidos
               acompanhando cursos e estudos práticos. Eles mostram
               minha evolução, dedicação e vontade constante de
               aprender.
@@ -91,6 +94,45 @@ export const Projetos = () => {
               <FaGithub />
 
               Visitar GitHub
+            </a>
+
+            <a
+              href={vercelUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                                mt-12
+
+                                flex
+                                items-center
+                                gap-4
+
+                                rounded-2xl
+
+                                border
+                                border-[#f20e4f]
+
+                                bg-[#f20e4f]/10
+
+                                px-10
+                                py-5
+
+                                text-xl
+                                font-semibold
+
+                                text-[#f20e4f]
+
+                                transition-all
+                                duration-500
+
+                                hover:-translate-y-2
+                                hover:bg-[#f20e4f]/15
+                                hover:shadow-[0_0_25px_rgba(239,217,199,.3)]
+                            "
+            >
+              <SiVercel />
+
+              Visitar Vercel
             </a>
 
             <section
