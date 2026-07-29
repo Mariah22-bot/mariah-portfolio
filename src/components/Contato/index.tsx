@@ -27,6 +27,7 @@ export const Contato = () => {
     const containerRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
+        const currentElement = containerRef.current;
         const observer = new IntersectionObserver(
             ([entry]) => {
                 setIsVisible(entry.isIntersecting);
@@ -36,13 +37,13 @@ export const Contato = () => {
             }
         );
 
-        if (containerRef.current) {
-            observer.observe(containerRef.current);
+        if (currentElement) {
+            observer.observe(currentElement);
         }
 
         return () => {
-            if (containerRef.current) {
-                observer.unobserve(containerRef.current);
+            if (currentElement) {
+                observer.unobserve(currentElement);
             }
         };
     }, []);
@@ -94,6 +95,7 @@ export const Contato = () => {
                             <a
                                 key={contact.name}
                                 href={contact.href}
+                                aria-label={`Entrar em contato via ${contact.name}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="
