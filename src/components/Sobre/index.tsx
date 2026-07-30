@@ -1,6 +1,15 @@
 import { FaCode } from "react-icons/fa";
 
 export const Sobre = () => {
+
+    const tecnologias = [
+        { categoria: "Linguagens", itens: "TypeScript, JavaScript, HTML5 e CSS3" },
+        { categoria: "Biblioteca", itens: "React.js" },
+        { categoria: "Estilização", itens: "Tailwind CSS" },
+        { categoria: "Ferramentas de versionamento", itens: "Git e GitHub" },
+        { categoria: "Conceitos/Foco", itens: "Desenvolvimento Front-end, Web Design Responsivo, APIs REST" },
+    ];
+
     return (
         <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-4 sm:py-10 md:py-12 max-[680px]:items-start max-[680px]:justify-start max-[680px]:pt-24 max-[600px]:pt-28 max-[520px]:pt-32">
 
@@ -43,6 +52,7 @@ export const Sobre = () => {
                     <section className="mt-12">
 
                         <blockquote
+                            cite="https://pt.wikipedia.org/wiki/S%C3%B3crates"
                             className="
                                 border-l-4
                                 border-[#550542]/50
@@ -65,7 +75,7 @@ export const Sobre = () => {
                             </p>
 
                             <p className="text-2xl font-semibold text-[#0000F6]/85">
-                                "Tudo que sei é que nada sei."
+                                <cite className="not-italic">"Só sei que nada sei."</cite>
                             </p>
 
                         </blockquote>
@@ -110,40 +120,12 @@ export const Sobre = () => {
                         </div>
 
                         <ul className="space-y-4 text-lg leading-9 text-[#0000F6]/85">
-                            <li>
-                                <span className="font-semibold text-[#f20e4f]">
-                                    Linguagens:
-                                </span>{' '}
-                                TypeScript, JavaScript, HTML5 e CSS3.
-                            </li>
-
-                            <li>
-                                <span className="font-semibold text-[#f20e4f]">
-                                    Biblioteca:
-                                </span>{' '}
-                                React.js.
-                            </li>
-
-                            <li>
-                                <span className="font-semibold text-[#f20e4f]">
-                                    Estilização:
-                                </span>{' '}
-                                Tailwind CSS.
-                            </li>
-
-                            <li>
-                                <span className="font-semibold text-[#f20e4f]">
-                                    Ferramentas de versionamento:
-                                </span>{' '}
-                                Git e GitHub.
-                            </li>
-
-                            <li>
-                                <span className="font-semibold text-[#f20e4f]">
-                                    Conceitos/Foco:
-                                </span>{' '}
-                                Desenvolvimento Front-end, Web Design Responsivo, APIs REST.
-                            </li>
+                            {tecnologias.map((tech, index) => (
+                                <li key={index}>
+                                    <span className="font-semibold text-[#f20e4f]">{tech.categoria}: </span>
+                                    {tech.itens}
+                                </li>
+                            ))}
                         </ul>
 
                     </section>
