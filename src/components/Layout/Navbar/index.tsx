@@ -30,17 +30,13 @@ export const NavBar = ({ isOpen, onToggleMenu, onCloseMenu, onHomeClick }: Navba
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const navBaseClasses = "fixed z-50 w-full bg-[#EFD9C7]/80 md:bg-transparent lg:bg-transparent transition-all duration-500 ease-in-out";
+    const navVisibilityClasses = isVisible || isOpen
+        ? "opacity-100 translate-y-0 pointer-events-auto"
+        : "opacity-0 -translate-y-5 pointer-events-none";
+
     return (
-        <nav
-            /* 
-              Injetamos classes dinâmicas para fazer a transição de opacidade suave (fadeIn / fadeOut).
-              Se a barra não estiver visível (e o menu não estiver aberto), ela fica oculta e intocável.
-            */
-            className={`bg-[#EFD9C7]/80 md:bg-transparent lg:bg-transparent fixed z-50 w-full transition-all duration-500 ease-in-out ${isVisible || isOpen
-                ? "opacity-100 translate-y-0 pointer-events-auto"
-                : "opacity-0 -translate-y-5 pointer-events-none"
-                }`}
-        >
+        <nav className={`${navBaseClasses} ${navVisibilityClasses}`}>
             <div className="flex w-full items-center justify-between px-2 pt-2">
                 <button
                     type="button"
