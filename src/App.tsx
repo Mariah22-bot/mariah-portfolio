@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Main } from './components/Layout/Main'
-import { InteractiveContainer } from './components/Layout/InteractiveContainer/InteractiveContainer'
+import { InteractiveContainer } from './components/Layout/InteractiveContainer'
 import { NavBar } from './components/Layout/NavBar'
 import { WindowMenu } from './components/Layout/WindowMenu'
 import { Projetos } from './components/Projetos'
