@@ -1,9 +1,9 @@
 import React from "react";
-import type { EyeHotspotProps } from "./types";
-import { Hotspot } from "./Hotspot";
-import { EYE } from "./paths";
-import { TRANSFORMS } from "./transforms";
-import { COLORS, STROKE, OPACITY } from "./constants";
+import type { EyeHotspotProps } from "../types";
+import { Hotspot } from "../hotspots";
+import { EYE } from "../paths";
+import { TRANSFORMS } from "../transforms";
+import { COLORS, STROKE, OPACITY } from "../constants";
 
 export const EyeHotspot: React.FC<EyeHotspotProps> = ({
     side,

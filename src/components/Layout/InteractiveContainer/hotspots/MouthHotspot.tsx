@@ -52,11 +52,11 @@
 
 
 import React from "react";
-import type { MouthHotspotProps } from "./types";
-import { Hotspot } from "./Hotspot";
-import { MOUTH } from "./paths";
-import { TRANSFORMS } from "./transforms";
-import { COLORS, STROKE, OPACITY } from "./constants";
+import type { MouthHotspotProps } from "../types";
+import { Hotspot } from ".";
+import { MOUTH } from "../paths";
+import { TRANSFORMS } from "../transforms";
+import { COLORS, STROKE, OPACITY } from "../constants";
 
 export const MouthHotspot: React.FC<MouthHotspotProps> = ({
   animate,

@@ -1,6 +1,6 @@
 import React from "react";
-import type { HotspotProps } from "./types";
-import { CLASSES } from "./constants";
+import type { HotspotProps } from "../types";
+import { CLASSES } from "../constants";
 import { ShowWord } from "./ShowWord"; // Importando com o novo nome
 
 export const Hotspot: React.FC<HotspotProps> = ({

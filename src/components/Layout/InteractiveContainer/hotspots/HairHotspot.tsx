@@ -1,9 +1,9 @@
 import React from "react";
-import type { HairHotspotProps } from "./types";
-import { Hotspot } from "./Hotspot";
-import { HAIR } from "./paths";
-import { TRANSFORMS } from "./transforms";
-import { COLORS, STROKE, OPACITY } from "./constants";
+import type { HairHotspotProps } from "../types";
+import { Hotspot } from ".";
+import { HAIR } from "../paths";
+import { TRANSFORMS } from "../transforms";
+import { COLORS, STROKE, OPACITY } from "../constants";
 
 export const HairHotspot: React.FC<HairHotspotProps> = ({
   variant,

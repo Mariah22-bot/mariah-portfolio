@@ -130,9 +130,9 @@
 
 import React, { useState, useEffect } from "react";
 import type { InteractiveContainerProps, Section } from "./types";
-import { EyeHotspot } from "./EyeHotspot";
-import { HairHotspot } from "./HairHotspot";
-import { MouthHotspot } from "./MouthHotspot";
+import { EyeHotspot } from "./hotspots/EyeHotspot";
+import { HairHotspot } from "./hotspots/HairHotspot";
+import { MouthHotspot } from "./hotspots/MouthHotspot";
 
 export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
     showHotspots = true,
