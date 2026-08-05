@@ -1,65 +1,47 @@
 import type { ReactNode } from "react";
 
-/* ==========================================================
- * Navegação
- * ========================================================== */
+/* Navegação */
 
 export type Section = "sobre" | "projetos" | "contato";
 
-/* ==========================================================
- * InteractiveContainer
- * ========================================================== */
+/* InteractiveContainer */
 
 export interface InteractiveContainerProps {
     showHotspots?: boolean;
     onSelectHotspot?: () => void;
 }
 
-/* ==========================================================
- * Hotspot Base
- * ========================================================== */
+/* Hotspot Base */
 
 export interface HotspotProps {
     href: `#${Section}`;
-
     section: Section;
-
     transform?: string;
-
     animate?: boolean;
-
     children: ReactNode;
 
     onNavigate: (section: Section) => void;
 }
 
-/* ==========================================================
- * Eye
- * ========================================================== */
+/* Eye */
 
 export interface EyeHotspotProps {
     side: "left" | "right";
-
     animate?: boolean;
 
     onNavigate: (section: Section) => void;
 }
 
-/* ==========================================================
- * Hair
- * ========================================================== */
+/* Hair */
 
 export interface HairHotspotProps {
     variant: "left" | "center" | "right";
-
     animate?: boolean;
 
     onNavigate: (section: Section) => void;
 }
 
-/* ==========================================================
- * Mouth
- * ========================================================== */
+/* Mouth */
 
 export interface MouthHotspotProps {
     animate?: boolean;
