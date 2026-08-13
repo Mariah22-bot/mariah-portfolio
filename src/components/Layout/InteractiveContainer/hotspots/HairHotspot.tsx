@@ -20,6 +20,7 @@ export const HairHotspot: React.FC<HairHotspotProps> = ({
       section={section}
       transform={transform}
       animate={animate}
+      showWord={variant === "center"}
       onNavigate={onNavigate}
     >
       {/* Área de clique estendida */}

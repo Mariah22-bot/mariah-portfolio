@@ -19,6 +19,8 @@ export interface HotspotProps {
     transform?: string;
     animate?: boolean;
     children: ReactNode;
+    /** Controla se a palavra (ShowWord) deve ser exibida para este hotspot */
+    showWord?: boolean;
 
     onNavigate: (section: Section) => void;
 }

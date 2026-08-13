@@ -64,10 +64,13 @@ export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
                     className="absolute top-0 left-0 w-full h-full select-none z-10 pointer-events-auto"
                     xmlns="http://www.w3.org/2000/svg"
                 >
-                    {/* Hotspots do Cabelo (Projetos) */}
+                    {/* Hotspots do Cabelo (Projetos)
+                        Ordem ajustada para garantir que o cacho central seja renderizado por último,
+                        fazendo com que sua palavra (`ShowWord`) fique acima dos outros hotspots.
+                    */}
                     <HairHotspot variant="left" animate={false} onNavigate={handleNavigation} />
-                    <HairHotspot variant="center" animate={false} onNavigate={handleNavigation} />
                     <HairHotspot variant="right" animate={false} onNavigate={handleNavigation} />
+                    <HairHotspot variant="center" animate={false} onNavigate={handleNavigation} />
 
                     {/* Hotspots dos Olhos (Sobre) */}
                     <EyeHotspot side="left" animate={false} onNavigate={handleNavigation} />

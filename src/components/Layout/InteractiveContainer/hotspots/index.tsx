@@ -8,6 +8,7 @@ export const Hotspot: React.FC<HotspotProps> = ({
     transform,
     animate,
     children,
+    showWord = true,
     onNavigate,
 }) => {
     const handleClick = () => {
@@ -42,7 +43,7 @@ export const Hotspot: React.FC<HotspotProps> = ({
                     } group pointer-events-auto cursor-pointer transition-all duration-700 hover:scale-115`}
             >
                 {children}
-                <ShowWord section={section} transformStr={String(transform || '')} />
+                {showWord && <ShowWord section={section} transformStr={String(transform || '')} />}
             </g>
         </g>
     );
