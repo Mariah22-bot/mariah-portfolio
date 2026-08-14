@@ -8,19 +8,21 @@ import { COLORS, STROKE, OPACITY } from "../constants";
 export const HairHotspot: React.FC<HairHotspotProps> = ({
   variant,
   animate,
+  hovered,
   onNavigate,
 }) => {
   const section = "projetos";
   const transform = TRANSFORMS.hair[variant];
   const href = `#${section}` as const;
 
-  return (
+    return (
     <Hotspot
       href={href}
       section={section}
       transform={transform}
       animate={animate}
       showWord={variant === "center"}
+      hovered={hovered}
       onNavigate={onNavigate}
     >
       {/* Área de clique estendida */}

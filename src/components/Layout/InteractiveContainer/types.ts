@@ -22,6 +22,9 @@ export interface HotspotProps {
     /** Controla se a palavra (ShowWord) deve ser exibida para este hotspot */
     showWord?: boolean;
 
+    /** Força o estado de hover externamente (ex: grupo de cachos) */
+    hovered?: boolean;
+
     onNavigate: (section: Section) => void;
 }
 
@@ -39,6 +42,9 @@ export interface EyeHotspotProps {
 export interface HairHotspotProps {
     variant: "left" | "center" | "right";
     animate?: boolean;
+
+    /** Recebe hover de grupo, se houver */
+    hovered?: boolean;
 
     onNavigate: (section: Section) => void;
 }

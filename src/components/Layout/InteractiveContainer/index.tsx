@@ -10,6 +10,7 @@ export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
     onSelectHotspot,
 }) => {
     const [maxWidth, setMaxWidth] = useState<string>("905px");
+    const [hairHovered, setHairHovered] = useState<boolean>(false);
 
     useEffect(() => {
         const handleResize = () => {
@@ -64,13 +65,21 @@ export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
                     className="absolute top-0 left-0 w-full h-full select-none z-10 pointer-events-auto"
                     xmlns="http://www.w3.org/2000/svg"
                 >
-                    {/* Hotspots do Cabelo (Projetos)
-                        Ordem ajustada para garantir que o cacho central seja renderizado por último,
-                        fazendo com que sua palavra (`ShowWord`) fique acima dos outros hotspots.
-                    */}
-                    <HairHotspot variant="left" animate={false} onNavigate={handleNavigation} />
-                    <HairHotspot variant="right" animate={false} onNavigate={handleNavigation} />
-                    <HairHotspot variant="center" animate={false} onNavigate={handleNavigation} />
+                        {/* Hotspots do Cabelo (Projetos)
+                            Agora agrupados: uma única área ativa controla os três cachos.
+                            Ordem ajustada para garantir que o cacho central seja renderizado por último,
+                            fazendo com que sua palavra (`ShowWord`) fique acima dos outros hotspots.
+                        */}
+                        {/* Área agrupada que controla hover/click para os 3 cachos */}
+                        <g
+                            onMouseEnter={() => setHairHovered(true)}
+                            onMouseLeave={() => setHairHovered(false)}
+                            onClick={() => handleNavigation('projetos')}
+                        >
+                            <HairHotspot variant="left" animate={false} hovered={hairHovered} onNavigate={handleNavigation} />
+                            <HairHotspot variant="right" animate={false} hovered={hairHovered} onNavigate={handleNavigation} />
+                            <HairHotspot variant="center" animate={false} hovered={hairHovered} onNavigate={handleNavigation} />
+                        </g>
 
                     {/* Hotspots dos Olhos (Sobre) */}
                     <EyeHotspot side="left" animate={false} onNavigate={handleNavigation} />
