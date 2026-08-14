@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import logoImg from "../../../assets/images/logo.png";
 import menuImg from "../../../assets/images/menu.png";
 
-type NavbarProps = {
+type NavBarProps = {
     isOpen: boolean;
     onToggleMenu: () => void;
     onCloseMenu: () => void;
     onHomeClick: () => void;
 };
 
-export const NavBar = ({ isOpen, onToggleMenu, onCloseMenu, onHomeClick }: NavbarProps) => {
+export const NavBar = ({ isOpen, onToggleMenu, onCloseMenu, onHomeClick }: NavBarProps) => {
     // Estado para controlar se a NavBar deve ser exibida ou não
     const [isVisible, setIsVisible] = useState(false);
 
