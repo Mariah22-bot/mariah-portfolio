@@ -14,20 +14,15 @@ export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
 
     useEffect(() => {
         const handleResize = () => {
-            // Se a tela for maior que 1920px, remove o limite de 905px (deixa crescer livre)
-            if (window.innerWidth > 1920) {
-                setMaxWidth("none");
-            } else {
-                // Para qualquer tela ATÉ 1920px, crava o limite máximo em 905px
-                setMaxWidth("905px");
-            }
-        };
+            // remove o maxWidth em telas muito grandes
+            if (window.innerWidth > 1920) setMaxWidth("none")
+            else setMaxWidth("905px")
+        }
 
-        // Executa ao montar o componente e adiciona o listener de redimensionamento
-        handleResize();
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
+        handleResize()
+        window.addEventListener("resize", handleResize)
+        return () => window.removeEventListener("resize", handleResize)
+    }, [])
 
     const handleNavigation = (section: Section) => {
         console.log(`Navegando para a seção: ${section}`);
@@ -65,12 +60,7 @@ export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
                     className="absolute top-0 left-0 w-full h-full select-none z-10 pointer-events-auto"
                     xmlns="http://www.w3.org/2000/svg"
                 >
-                        {/* Hotspots do Cabelo (Projetos)
-                            Agora agrupados: uma única área ativa controla os três cachos.
-                            Ordem ajustada para garantir que o cacho central seja renderizado por último,
-                            fazendo com que sua palavra (`ShowWord`) fique acima dos outros hotspots.
-                        */}
-                        {/* Área agrupada que controla hover/click para os 3 cachos */}
+                        {/* Hotspots do cabelo: área agrupada controla hover/click para os 3 cachos */}
                         <g
                             onMouseEnter={() => setHairHovered(true)}
                             onMouseLeave={() => setHairHovered(false)}

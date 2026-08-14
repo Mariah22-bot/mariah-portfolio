@@ -10,8 +10,8 @@ type NavBarProps = {
 };
 
 export const NavBar = ({ isOpen, onToggleMenu, onCloseMenu, onHomeClick }: NavBarProps) => {
-    // Estado para controlar se a NavBar deve ser exibida ou não
-    const [isVisible, setIsVisible] = useState(false);
+    // controla se a NavBar está visível (scroll / menu aberto)
+    const [isVisible, setIsVisible] = useState(false)
 
     useEffect(() => {
         let ticking = false;

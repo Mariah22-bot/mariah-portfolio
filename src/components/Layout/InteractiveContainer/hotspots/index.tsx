@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import type { HotspotProps } from "../types";
 import { CLASSES } from "../constants";
-import { ShowWord } from "./ShowWord"; // Importando com o novo nome
+import { ShowWord } from "./ShowWord"
 
 export const Hotspot: React.FC<HotspotProps> = ({
     section,

@@ -35,61 +35,50 @@ export const ShowWord: React.FC<ShowWordProps> = ({ section, transformStr, hover
 
     const coords = getCoordinates();
 
-    // controla visibilidade de toda a palavra
-    const [visible, setVisible] = useState<boolean>(false);
+    // visibilidade coletiva do texto (fade-in/fade-out) e timers de controle
+    const [visible, setVisible] = useState<boolean>(false)
 
-    // duração e tempos configuráveis
-    const appearDuration = 1000; // ms para o fade-in
-    const stayMs = 500; // permanecer visível
+    // durações configuráveis (ms)
+    const appearDuration = 1000
+    const stayMs = 1000
 
-    // timers refs para controlar execução da sequência
-    const showTimerRef = React.useRef<number | null>(null);
-    const hideTimerRef = React.useRef<number | null>(null);
+    const showTimerRef = React.useRef<number | null>(null)
+    const hideTimerRef = React.useRef<number | null>(null)
 
     const clearAll = () => {
         if (showTimerRef.current) {
-            clearTimeout(showTimerRef.current);
-            showTimerRef.current = null;
+            clearTimeout(showTimerRef.current)
+            showTimerRef.current = null
         }
         if (hideTimerRef.current) {
-            clearTimeout(hideTimerRef.current);
-            hideTimerRef.current = null;
+            clearTimeout(hideTimerRef.current)
+            hideTimerRef.current = null
         }
-    };
+    }
 
     const startSequence = () => {
-        clearAll();
-        // começa invisível e depois faz fade-in coletivo
-        setVisible(false);
+        clearAll()
+        setVisible(false)
+        showTimerRef.current = window.setTimeout(() => setVisible(true), 100)
+        hideTimerRef.current = window.setTimeout(() => setVisible(false), appearDuration + stayMs + 100)
+    }
 
-        // small delay to allow transition to apply
-        showTimerRef.current = window.setTimeout(() => {
-            setVisible(true);
-        }, 100);
-
-        // programar fade-out após aparecer + permanecer
-        hideTimerRef.current = window.setTimeout(() => {
-            setVisible(false);
-        }, appearDuration + stayMs + 100);
-    };
-
-    // roda no mount
+    // executa ao montar e limpa timers ao desmontar
     React.useEffect(() => {
-        startSequence();
-        return () => clearAll();
+        startSequence()
+        return () => clearAll()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [])
 
-    // quando o mouse entra: mostra e cancela timers; quando sai: esconde (fade-out)
+    // durante hover mostramos o texto; ao sair, aplicamos fade-out
     React.useEffect(() => {
         if (hovered) {
-            clearAll();
-            setVisible(true);
+            clearAll()
+            setVisible(true)
         } else {
-            // se o mouse saiu, esconder imediatamente (com a transição de opacidade)
-            setVisible(false);
+            setVisible(false)
         }
-    }, [hovered]);
+    }, [hovered])
 
     const gradId = `sw-grad-${section}`;
     const glowId = `sw-glow-${section}`;

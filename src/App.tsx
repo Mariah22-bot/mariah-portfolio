@@ -18,24 +18,12 @@ function App() {
     const target = document.getElementById(section)
     if (!target) return
 
-    // 1. Descobre onde a seção está em relação ao topo da página
+    // Rolagem suave para a seção, compensando a altura da NavBar quando aberta
     const targetPosition = target.getBoundingClientRect().top + window.scrollY
-
-    // 2. Verifica se a NavBar está visível na tela (usando o nosso estado isMenuOpen ou checando a classe)
-    // Se o menu de janela está aberto, com certeza a NavBar também está ativa.
-    // Vamos definir uma compensação (offset) de 80 pixels se o menu estiver aberto, ou 0 se veio da imagem inicial.
     const NavBarOffset = isMenuOpen ? 80 : 0
-
-    // 3. Faz o cálculo real: posição do alvo MENOS o espaço que a barra ocupa
     const offsetPosition = targetPosition - NavBarOffset
 
-    // 4. Executa a rolagem precisa
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    })
-
-    // 5. Fecha o menu de janela
+    window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
     closeMenu()
   }
 
