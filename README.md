@@ -8,9 +8,11 @@
 └──────────────────────────────────────────────────────────────┘
 ```
 
+This README is in English — para a versão em Português veja: [README.pt-BR.md](README.pt-BR.md)
+
 🌐 Live Demo
 
-https://seu-site.vercel.app
+https://mariah-portfolio-theta.vercel.app/
 
 > **An interactive portfolio where the illustration becomes the primary navigation, complemented by a floating menu for quick access across the site.**
 
@@ -42,7 +44,7 @@ This project explores the concept of **Navigation as UI**, replacing traditional
 ## `> run.locally`
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/mariah22-bot/mariah-portfolio.git
 
 cd projeto-portfolio
 
