@@ -24,10 +24,10 @@ function App() {
     // 2. Verifica se a NavBar está visível na tela (usando o nosso estado isMenuOpen ou checando a classe)
     // Se o menu de janela está aberto, com certeza a NavBar também está ativa.
     // Vamos definir uma compensação (offset) de 80 pixels se o menu estiver aberto, ou 0 se veio da imagem inicial.
-    const navBarOffset = isMenuOpen ? 80 : 0
+    const NavBarOffset = isMenuOpen ? 80 : 0
 
     // 3. Faz o cálculo real: posição do alvo MENOS o espaço que a barra ocupa
-    const offsetPosition = targetPosition - navBarOffset
+    const offsetPosition = targetPosition - NavBarOffset
 
     // 4. Executa a rolagem precisa
     window.scrollTo({
