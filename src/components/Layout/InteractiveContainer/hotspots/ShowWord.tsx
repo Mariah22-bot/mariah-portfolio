@@ -8,10 +8,6 @@ interface ShowWordProps {
     hovered?: boolean;
 }
 
-/**
- * Mostra a palavra inteira imediatamente ao montar, mantém por 3s e
- * então faz desaparecer letra-a-letra (do início ao fim).
- */
 export const ShowWord: React.FC<ShowWordProps> = ({ section, transformStr, hovered }) => {
     const getLabel = () => {
         if (section === "sobre") return "SOBRE";
@@ -39,12 +35,12 @@ export const ShowWord: React.FC<ShowWordProps> = ({ section, transformStr, hover
 
     const coords = getCoordinates();
 
-    // controla visibilidade de toda a palavra (todas as letras juntas)
+    // controla visibilidade de toda a palavra
     const [visible, setVisible] = useState<boolean>(false);
 
     // duração e tempos configuráveis
-    const appearDuration = 1000; // ms para o fade-in (mais devagar)
-    const stayMs = 1000; // permanecer visível por 1s
+    const appearDuration = 1000; // ms para o fade-in
+    const stayMs = 500; // permanecer visível
 
     // timers refs para controlar execução da sequência
     const showTimerRef = React.useRef<number | null>(null);
