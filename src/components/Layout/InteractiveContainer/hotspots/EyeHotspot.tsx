@@ -25,7 +25,7 @@ export const EyeHotspot: React.FC<EyeHotspotProps> = ({
             onNavigate={onNavigate}
         >
             {/* Área de Clique Oculta */}
-            <path d={EYE.clickArea} 
+            <path d={EYE.clickAreaCombined} 
                 stroke="transparent" 
                 strokeWidth={60} 
                 strokeLinecap="round"
