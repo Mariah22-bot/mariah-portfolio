@@ -33,6 +33,7 @@ export interface HotspotProps {
 export interface EyeHotspotProps {
     side: "left" | "right";
     animate?: boolean;
+    showWord?: boolean;
 
     onNavigate: (section: Section) => void;
 }

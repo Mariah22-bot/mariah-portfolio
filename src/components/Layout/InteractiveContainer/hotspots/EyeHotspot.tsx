@@ -8,6 +8,7 @@ import { COLORS, STROKE, OPACITY } from "../constants";
 export const EyeHotspot: React.FC<EyeHotspotProps> = ({
     side,
     animate,
+    showWord = true,
     onNavigate,
 }) => {
     const section = "sobre";
@@ -20,6 +21,7 @@ export const EyeHotspot: React.FC<EyeHotspotProps> = ({
             section={section}
             transform={transform}
             animate={animate}
+            showWord={showWord}
             onNavigate={onNavigate}
         >
             {/* Área de Clique Oculta */}

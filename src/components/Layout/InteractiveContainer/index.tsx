@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import type { InteractiveContainerProps, Section } from "./types";
 import avatarImg from "../../../assets/images/mariah-avatar.png";
-import { EyeHotspot } from "./hotspots/EyeHotspot";
 import { HairHotspot } from "./hotspots/HairHotspot";
 import { MouthHotspot } from "./hotspots/MouthHotspot";
+import { Hotspot } from "./hotspots";
+import { EYE } from "./paths";
+import { COLORS, OPACITY, STROKE } from "./constants";
 
 export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
     showHotspots = true,
@@ -71,9 +73,67 @@ export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
                             <HairHotspot variant="center" animate={false} hovered={hairHovered} onNavigate={handleNavigation} />
                         </g>
 
-                    {/* Hotspots dos Olhos (Sobre) */}
-                    <EyeHotspot side="left" animate={false} onNavigate={handleNavigation} />
-                    <EyeHotspot side="right" animate={false} onNavigate={handleNavigation} />
+                    {/* Hotspot único dos Olhos (Sobre) */}
+                    <Hotspot
+                        href="#sobre"
+                        section="sobre"
+                        animate={false}
+                        onNavigate={handleNavigation}
+                    >
+                        <g transform="translate(0 -120)">
+                            <path
+                                d={EYE.clickAreaCombined}
+                                fill="transparent"
+                                stroke="transparent"
+                                strokeWidth={60}
+                                strokeLinecap="round"
+                                pointerEvents="all"
+                                className="cursor-pointer"
+                            />
+                        </g>
+
+                        <g transform="translate(32 -225)">
+                            <path
+                                d={EYE.outline}
+                                fill="none"
+                                stroke={COLORS.eye}
+                                strokeWidth={STROKE.eye.outline}
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                style={{ opacity: OPACITY.visible }}
+                            />
+                            <path
+                                d={EYE.bottomLine}
+                                fill="none"
+                                stroke={COLORS.eye}
+                                strokeWidth={STROKE.eye.line}
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                style={{ opacity: OPACITY.visible }}
+                            />
+                        </g>
+
+                        <g transform="translate(990 -224) scale(-1 1)">
+                            <path
+                                d={EYE.outline}
+                                fill="none"
+                                stroke={COLORS.eye}
+                                strokeWidth={STROKE.eye.outline}
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                style={{ opacity: OPACITY.visible }}
+                            />
+                            <path
+                                d={EYE.bottomLine}
+                                fill="none"
+                                stroke={COLORS.eye}
+                                strokeWidth={STROKE.eye.line}
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                style={{ opacity: OPACITY.visible }}
+                            />
+                        </g>
+                    </Hotspot>
 
                     {/* Hotspot da Boca (Contato) */}
                     <MouthHotspot animate={false} onNavigate={handleNavigation} />

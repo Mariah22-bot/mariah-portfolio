@@ -22,7 +22,8 @@ export const ShowWord: React.FC<ShowWordProps> = ({ section, transformStr, hover
 
     const getCoordinates = () => {
         if (section === "sobre") {
-            return isRightEye ? { x: 476, y: 555 } : { x: 482, y: 555 };
+            return isRightEye ? { x: 515, y: 320} : { x: 515, y: 320 };
+            // return { x: 515, y: 320 };
         }
         if (section === "contato") {
             return { x: 495, y: 800 };
