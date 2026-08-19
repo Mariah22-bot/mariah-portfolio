@@ -12,9 +12,6 @@ export const Hotspot: React.FC<HotspotProps> = ({
     hovered: externalHovered,
     onNavigate,
 }) => {
-    const handleClick = () => {
-        onNavigate(section);
-    };
 
     const getDelay = () => {
         const transformStr = String(transform || '');
@@ -26,6 +23,46 @@ export const Hotspot: React.FC<HotspotProps> = ({
 
     const [hovered, setHovered] = useState(false);
     const effectiveHovered = externalHovered ?? hovered;
+    // touch state: em dispositivos touch, primeiro toque apenas mostra a palavra;
+    // segundo toque dispara a navegação.
+    const [touchActive, setTouchActive] = useState(false);
+    const touchTimerRef = React.useRef<number | null>(null);
+
+    const isTouchDevice = typeof navigator !== 'undefined' && (navigator.maxTouchPoints > 0 || ('ontouchstart' in window));
+
+    const clearTouch = () => {
+        if (touchTimerRef.current) {
+            clearTimeout(touchTimerRef.current);
+            touchTimerRef.current = null;
+        }
+        setTouchActive(false);
+    };
+
+    const handleHotspotClick = (e: React.MouseEvent<SVGGElement, MouseEvent>) => {
+        // Em dispositivos touch, alternamos: primeiro toque apenas ativa o texto;
+        // segundo toque realmente navega.
+        if (isTouchDevice) {
+            if (!touchActive) {
+                // mostra a palavra
+                setTouchActive(true);
+                // limpa após 2.5s para permitir um segundo toque
+                touchTimerRef.current = window.setTimeout(() => {
+                    setTouchActive(false);
+                    touchTimerRef.current = null;
+                }, 2500);
+                // evita navegação neste clique
+                e.stopPropagation();
+                return;
+            }
+            // se já estava ativo por toque, segue para navegação
+            clearTouch();
+            onNavigate(section);
+            return;
+        }
+
+        // comportamento padrão para mouse/desktop
+        onNavigate(section);
+    };
 
     return (
         /* GRUPO EXTERNO: Cuida estritamente de encaixar o hotspot no lugar certo do rosto */
@@ -33,7 +70,7 @@ export const Hotspot: React.FC<HotspotProps> = ({
 
             {/* GRUPO INTERNO: Cuida exclusivamente das animações, do zoom e do clique */}
             <g
-                onClick={handleClick}
+                onClick={handleHotspotClick}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
                 style={{
@@ -52,7 +89,7 @@ export const Hotspot: React.FC<HotspotProps> = ({
                     <ShowWord
                         section={section}
                         transformStr={String(transform || '')}
-                        hovered={effectiveHovered}
+                        hovered={effectiveHovered || touchActive}
                     />
                 )}
             </g>
