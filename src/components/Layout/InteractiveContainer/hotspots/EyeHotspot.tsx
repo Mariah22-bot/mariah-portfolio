@@ -22,22 +22,13 @@ export const EyeHotspot: React.FC<EyeHotspotProps> = ({
             animate={animate}
             onNavigate={onNavigate}
         >
-            {/* Área de Clique Oculta (compatível com touch) */}
-            {/* Usamos um preenchimento quase transparente para garantir que navegadores
-                mobile registrem o toque mesmo em áreas SVG "transparentes". Além disso
-                desenhamos um stroke invisível e largo para expandir a área sensível ao toque
-                (especialmente útil em Android). */}
-            <path d={EYE.clickArea} fill="rgba(0,0,0,0.001)" pointerEvents="all" className="cursor-pointer" />
-            <path
-                d={EYE.clickArea}
-                fill="none"
-                stroke="rgba(0,0,0,0.001)"
-                strokeWidth={40}
+            {/* Área de Clique Oculta */}
+            <path d={EYE.clickArea} 
+                stroke="transparent" 
+                strokeWidth={60} 
                 strokeLinecap="round"
-                strokeLinejoin="round"
                 pointerEvents="all"
-                className="cursor-pointer"
-            />
+                className="cursor-pointer" />
 
             {/* Contorno Principal */}
             <path
