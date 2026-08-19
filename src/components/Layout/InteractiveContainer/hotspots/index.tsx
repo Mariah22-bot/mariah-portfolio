@@ -38,29 +38,56 @@ export const Hotspot: React.FC<HotspotProps> = ({
         setTouchActive(false);
     };
 
+    //     const handleHotspotClick = (e: React.MouseEvent<SVGGElement, MouseEvent>) => {
+    //         // Em dispositivos touch, alternamos: primeiro toque apenas ativa o texto;
+    //         // segundo toque realmente navega.
+    //         if (isTouchDevice) {
+    //             if (!touchActive) {
+    //                 // mostra a palavra
+    //                 setTouchActive(true);
+    //                 // limpa após 2.5s para permitir um segundo toque
+    //                 touchTimerRef.current = window.setTimeout(() => {
+    //                     setTouchActive(false);
+    //                     touchTimerRef.current = null;
+    //                 }, 2500);
+    //                 // evita navegação neste clique
+    //                 e.stopPropagation();
+    //                 return;
+    //             }
+    //             // se já estava ativo por toque, segue para navegação
+    //             clearTouch();
+    //             onNavigate(section);
+    //             return;
+    //         }
+    // 
+    //         // comportamento padrão para mouse/desktop
+    //         onNavigate(section);
+    //     };
+
     const handleHotspotClick = (e: React.MouseEvent<SVGGElement, MouseEvent>) => {
-        // Em dispositivos touch, alternamos: primeiro toque apenas ativa o texto;
-        // segundo toque realmente navega.
+        // Se o dispositivo for touch
         if (isTouchDevice) {
-            if (!touchActive) {
-                // mostra a palavra
+            // Se a palavra/hover AINDA NÃO estiver visível no toque,
+            // apenas ativa a visualização e impede o scroll imediato
+            if (!touchActive && !externalHovered) {
                 setTouchActive(true);
-                // limpa após 2.5s para permitir um segundo toque
+
                 touchTimerRef.current = window.setTimeout(() => {
                     setTouchActive(false);
                     touchTimerRef.current = null;
                 }, 2500);
-                // evita navegação neste clique
+
                 e.stopPropagation();
                 return;
             }
-            // se já estava ativo por toque, segue para navegação
+
+            // Se já estava visível ou se recebeu o segundo toque, navega
             clearTouch();
             onNavigate(section);
             return;
         }
 
-        // comportamento padrão para mouse/desktop
+        // Comportamento para Desktop (Mouse)
         onNavigate(section);
     };
 
