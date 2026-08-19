@@ -35,7 +35,7 @@ export const EyeHotspot: React.FC<EyeHotspotProps> = ({
                 strokeWidth={40}
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                pointerEvents="stroke"
+                pointerEvents="all"
                 className="cursor-pointer"
             />
 
