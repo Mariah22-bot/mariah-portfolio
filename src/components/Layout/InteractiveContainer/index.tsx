@@ -62,19 +62,19 @@ export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
                     className="absolute top-0 left-0 w-full h-full select-none z-10 pointer-events-auto"
                     xmlns="http://www.w3.org/2000/svg"
                 >
-                        {/* Hotspots do cabelo: área agrupada controla hover/click para os 3 cachos */}
-                        <g
-                            onMouseEnter={() => setHairHovered(true)}
-                            onMouseLeave={() => setHairHovered(false)}
-                            onClick={() => handleNavigation('projetos')}
-                        >
-                            <HairHotspot variant="left" animate={false} hovered={hairHovered} onNavigate={handleNavigation} />
-                            <HairHotspot variant="right" animate={false} hovered={hairHovered} onNavigate={handleNavigation} />
-                            <HairHotspot variant="center" animate={false} hovered={hairHovered} onNavigate={handleNavigation} />
-                        </g>
+                    {/* Hotspots do cabelo: área agrupada controla hover/click para os 3 cachos */}
+                    <g
+                        onMouseEnter={() => setHairHovered(true)}
+                        onMouseLeave={() => setHairHovered(false)}
+                        onClick={() => handleNavigation('projetos')}
+                    >
+                        <HairHotspot variant="left" animate={false} hovered={hairHovered} onNavigate={handleNavigation} />
+                        <HairHotspot variant="right" animate={false} hovered={hairHovered} onNavigate={handleNavigation} />
+                        <HairHotspot variant="center" animate={false} hovered={hairHovered} onNavigate={handleNavigation} />
+                    </g>
 
                     {/* Hotspot único dos Olhos (Sobre) */}
-                    <Hotspot
+                    {/* <Hotspot
                         href="#sobre"
                         section="sobre"
                         animate={false}
@@ -114,6 +114,68 @@ export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
                         </g>
 
                         <g transform="translate(990 -224) scale(-1 1)">
+                            <path
+                                d={EYE.outline}
+                                fill="none"
+                                stroke={COLORS.eye}
+                                strokeWidth={STROKE.eye.outline}
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                style={{ opacity: OPACITY.visible }}
+                            />
+                            <path
+                                d={EYE.bottomLine}
+                                fill="none"
+                                stroke={COLORS.eye}
+                                strokeWidth={STROKE.eye.line}
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                style={{ opacity: OPACITY.visible }}
+                            />
+                        </g>
+                    </Hotspot> */}
+                    {/* Hotspot único dos Olhos (Sobre) */}
+                    <Hotspot
+                        href="#sobre"
+                        section="sobre"
+                        animate={false}
+                        onNavigate={handleNavigation}
+                    >
+                        {/* 1. Área de Clique Única e Transparente cobrindo os dois olhos */}
+                        <path
+                            d={EYE.clickAreaCombined}
+                            fill="transparent"
+                            stroke="transparent"
+                            strokeWidth={60}
+                            strokeLinecap="round"
+                            pointerEvents="all"
+                            className="cursor-pointer"
+                        />
+
+                        {/* 2. Desenho do Olho Esquerdo */}
+                        <g transform="translate(32 -225)" pointerEvents="none">
+                            <path
+                                d={EYE.outline}
+                                fill="none"
+                                stroke={COLORS.eye}
+                                strokeWidth={STROKE.eye.outline}
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                style={{ opacity: OPACITY.visible }}
+                            />
+                            <path
+                                d={EYE.bottomLine}
+                                fill="none"
+                                stroke={COLORS.eye}
+                                strokeWidth={STROKE.eye.line}
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                style={{ opacity: OPACITY.visible }}
+                            />
+                        </g>
+
+                        {/* 3. Desenho do Olho Direito */}
+                        <g transform="translate(990 -224) scale(-1 1)" pointerEvents="none">
                             <path
                                 d={EYE.outline}
                                 fill="none"
