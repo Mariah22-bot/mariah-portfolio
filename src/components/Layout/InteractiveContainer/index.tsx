@@ -80,17 +80,12 @@ export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
                         animate={false}
                         onNavigate={handleNavigation}
                     >
-                        <g transform="translate(0 -120)">
-                            <path
-                                d={EYE.clickAreaCombined}
-                                fill="transparent"
-                                stroke="transparent"
-                                strokeWidth={60}
-                                strokeLinecap="round"
-                                pointerEvents="all"
-                                className="cursor-pointer"
-                            />
-                        </g>
+                        <path
+                            d={EYE.clickAreaCombined}
+                            fill="transparent"
+                            className="cursor-pointer"
+                            pointerEvents="all"
+                        />
 
                         <g transform="translate(32 -225)">
                             <path
