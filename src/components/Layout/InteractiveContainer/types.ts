@@ -31,7 +31,6 @@ export interface HotspotProps {
 /* Eye */
 
 export interface EyeHotspotProps {
-    side: "left" | "right";
     animate?: boolean;
     showWord?: boolean;
 

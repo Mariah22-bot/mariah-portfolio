@@ -74,7 +74,7 @@ export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
                     </g>
 
                     {/* Hotspot único dos Olhos (Sobre) */}
-                    {/* <Hotspot
+                    <Hotspot
                         href="#sobre"
                         section="sobre"
                         animate={false}
@@ -111,88 +111,58 @@ export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
                                 strokeLinejoin="round"
                                 style={{ opacity: OPACITY.visible }}
                             />
-                        </g>
 
-                        <g transform="translate(990 -224) scale(-1 1)">
-                            <path
-                                d={EYE.outline}
+                            {/* Detalhe central estilo olho biónico */}
+                            <circle
+                                cx={380}
+                                cy={585}
+                                r={30}
                                 fill="none"
                                 stroke={COLORS.eye}
-                                strokeWidth={STROKE.eye.outline}
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                style={{ opacity: OPACITY.visible }}
+                                strokeWidth={3}
+                                opacity={0.95}
+                            />
+                            <circle
+                                cx={380}
+                                cy={585}
+                                r={18}
+                                fill="rgba(158, 246, 255, 0.18)"
+                                stroke="rgba(158, 246, 255, 0.9)"
+                                strokeWidth={2}
+                            />
+                            <circle
+                                cx={380}
+                                cy={585}
+                                r={9}
+                                fill="#8af4ff"
+                                opacity={0.98}
+                            />
+                            <circle
+                                cx={380}
+                                cy={585}
+                                r={4}
+                                fill="#ffffff"
+                                opacity={0.9}
+                            />
+                            <circle
+                                cx={380}
+                                cy={585}
+                                r={40}
+                                fill="none"
+                                stroke="rgba(255,255,255,0.22)"
+                                strokeWidth={1.2}
                             />
                             <path
-                                d={EYE.bottomLine}
-                                fill="none"
-                                stroke={COLORS.eye}
-                                strokeWidth={STROKE.eye.line}
+                                d="M 325 334 L 365 334"
+                                stroke="rgba(255,255,255,0.3)"
+                                strokeWidth={1.4}
                                 strokeLinecap="round"
-                                strokeLinejoin="round"
-                                style={{ opacity: OPACITY.visible }}
-                            />
-                        </g>
-                    </Hotspot> */}
-                    {/* Hotspot único dos Olhos (Sobre) */}
-                    <Hotspot
-                        href="#sobre"
-                        section="sobre"
-                        animate={false}
-                        onNavigate={handleNavigation}
-                    >
-                        {/* 1. Área de Clique Única e Transparente cobrindo os dois olhos */}
-                        <path
-                            d={EYE.clickAreaCombined}
-                            fill="transparent"
-                            stroke="transparent"
-                            strokeWidth={60}
-                            strokeLinecap="round"
-                            pointerEvents="all"
-                            className="cursor-pointer"
-                        />
-
-                        {/* 2. Desenho do Olho Esquerdo */}
-                        <g transform="translate(32 -225)" pointerEvents="none">
-                            <path
-                                d={EYE.outline}
-                                fill="none"
-                                stroke={COLORS.eye}
-                                strokeWidth={STROKE.eye.outline}
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                style={{ opacity: OPACITY.visible }}
                             />
                             <path
-                                d={EYE.bottomLine}
-                                fill="none"
-                                stroke={COLORS.eye}
-                                strokeWidth={STROKE.eye.line}
+                                d="M 345 314 L 345 354"
+                                stroke="rgba(255,255,255,0.3)"
+                                strokeWidth={1.4}
                                 strokeLinecap="round"
-                                strokeLinejoin="round"
-                                style={{ opacity: OPACITY.visible }}
-                            />
-                        </g>
-
-                        {/* 3. Desenho do Olho Direito */}
-                        <g transform="translate(990 -224) scale(-1 1)" pointerEvents="none">
-                            <path
-                                d={EYE.outline}
-                                fill="none"
-                                stroke={COLORS.eye}
-                                strokeWidth={STROKE.eye.outline}
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                style={{ opacity: OPACITY.visible }}
-                            />
-                            <path
-                                d={EYE.bottomLine}
-                                fill="none"
-                                stroke={COLORS.eye}
-                                strokeWidth={STROKE.eye.line}
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                style={{ opacity: OPACITY.visible }}
                             />
                         </g>
                     </Hotspot>

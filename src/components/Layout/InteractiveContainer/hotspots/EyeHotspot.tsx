@@ -6,13 +6,12 @@ import { TRANSFORMS } from "../transforms";
 import { COLORS, STROKE, OPACITY } from "../constants";
 
 export const EyeHotspot: React.FC<EyeHotspotProps> = ({
-    side,
     animate,
     showWord = true,
     onNavigate,
 }) => {
     const section = "sobre";
-    const transform = TRANSFORMS.eye[side];
+    const transform = TRANSFORMS.eye;
     const href = `#${section}` as const;
 
     return (

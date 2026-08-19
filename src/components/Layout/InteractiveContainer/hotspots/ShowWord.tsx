@@ -3,12 +3,11 @@ import type { Section } from "../types";
 
 interface ShowWordProps {
     section: Section;
-    transformStr: string;
     /** Quando true, dispara a animação de aparecer/sumir (ex: hover) */
     hovered?: boolean;
 }
 
-export const ShowWord: React.FC<ShowWordProps> = ({ section, transformStr, hovered }) => {
+export const ShowWord: React.FC<ShowWordProps> = ({ section, hovered }) => {
     const getLabel = () => {
         if (section === "sobre") return "SOBRE";
         if (section === "projetos") return "PROJETOS";
@@ -18,12 +17,10 @@ export const ShowWord: React.FC<ShowWordProps> = ({ section, transformStr, hover
 
     const label = useMemo(() => getLabel(), [section]);
     const letters = useMemo(() => label.split(""), [label]);
-    const isRightEye = section === "sobre" && transformStr.includes("scale(-1");
 
     const getCoordinates = () => {
         if (section === "sobre") {
-            return isRightEye ? { x: 515, y: 320} : { x: 515, y: 320 };
-            // return { x: 515, y: 320 };
+            return { x: 515, y: 320 };
         }
         if (section === "contato") {
             return { x: 495, y: 800 };
@@ -86,7 +83,6 @@ export const ShowWord: React.FC<ShowWordProps> = ({ section, transformStr, hover
 
     return (
         <g
-            transform={isRightEye ? `scale(-1,1) translate(${-coords.x * 2},0)` : undefined}
             style={{ opacity: visible ? 1 : 0, transition: `opacity ${appearDuration}ms ease` }}
             className="pointer-events-none select-none"
         >

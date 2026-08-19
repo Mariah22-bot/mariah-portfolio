@@ -20,18 +20,9 @@ export const TRANSFORMS = {
         translate(16 -210)
     `,
 
-    eye: {
-
-        left: `
-            translate(32 -225)
-        `,
-
-        right: `
-            translate(990 -224)
-            scale(-1 1)
-        `,
-
-    },
+    eye: `
+        translate(0 -120)
+    `,
 
     hair: {
 
