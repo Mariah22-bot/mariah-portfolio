@@ -22,7 +22,8 @@ export const MouthHotspot: React.FC<MouthHotspotProps> = ({
       onNavigate={onNavigate}
     >
       {/* Área de Clique Oculta */}
-      <path d={MOUTH.clickArea} fill="transparent" className="cursor-pointer" />
+      <path d={MOUTH.clickArea} 
+        fill="transparent" className="cursor-pointer" />
 
       {/* Contorno dos Lábios */}
       <path
@@ -33,7 +34,8 @@ export const MouthHotspot: React.FC<MouthHotspotProps> = ({
         strokeLinecap="round"
         strokeLinejoin="round"
         style={{ opacity: OPACITY.visible }} /* Força a visibilidade imediata */
-        className="transition-opacity duration-500 group-hover:opacity-100"
+        className="transition-opacity 
+        duration-500 group-hover:opacity-100"
       />
 
       {/* Linha Central da Boca */}

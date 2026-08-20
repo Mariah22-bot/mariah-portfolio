@@ -5,7 +5,9 @@ import { HairHotspot } from "./hotspots/HairHotspot";
 import { MouthHotspot } from "./hotspots/MouthHotspot";
 import { Hotspot } from "./hotspots";
 import { EYE } from "./paths";
-import { COLORS, OPACITY, STROKE } from "./constants";
+import { COLORS, 
+    // OPACITY, STROKE 
+} from "./constants";
 
 export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
     showHotspots = true,
@@ -47,7 +49,7 @@ export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
             style={{ maxWidth: maxWidth }}
             className="relative w-full mx-auto flex items-center justify-center overflow-hidden rounded-lg"
         >
-
+            
             {/* Imagem Artística de Fundo */}
             <img
                 src={avatarImg}
@@ -81,14 +83,14 @@ export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
                         onNavigate={handleNavigation}
                     >
                         <path
-                            d={EYE.clickAreaCombined}
+                            d={EYE.clickArea}
                             fill="transparent"
                             className="cursor-pointer"
                             pointerEvents="all"
                         />
 
                         <g transform="translate(32 -225)">
-                            <path
+                            {/* <path
                                 d={EYE.outline}
                                 fill="none"
                                 stroke={COLORS.eye}
@@ -105,7 +107,7 @@ export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                                 style={{ opacity: OPACITY.visible }}
-                            />
+                            /> */}
 
                             {/* Detalhe central estilo olho biónico */}
                             <circle
