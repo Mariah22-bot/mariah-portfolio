@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { FiMail, FiDownload } from "react-icons/fi";
+import { FiMail } from "react-icons/fi";
 import { FaLinkedinIn } from "react-icons/fa6";
 import type { IconType } from "react-icons";
 
@@ -133,54 +133,6 @@ export const Contato = () => {
                         );
                     })}
 
-                    {/* Botão para abrir o currículo em outra página*/}
-                    <a
-                        href="/curriculo.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Abrir currículo em PDF em nova aba"
-                        className="
-                            group
-                            flex
-                            flex-col
-                            h-24
-                            w-24
-                            shrink-0
-                            items-center
-                            justify-center
-                            rounded-3xl
-                            bg-[#EFD9C7]/5
-                            transition-all
-                            duration-500
-                            hover:-translate-y-2
-                            hover:border-[#EFD9C7]
-                            hover:bg-[#EFD9C7]/10
-                            hover:shadow-[0_0_30px_rgba(239,217,199,0.35)]
-
-                            animate-float"
-                    >
-                        <FiDownload
-                            className="
-                                text-4xl
-                                text-[#EFD9C7]
-                                transition-all
-                                duration-500
-                                group-hover:scale-125
-                                group-hover:rotate-6
-                                group-hover:drop-shadow-[0_0_12px_rgba(239,217,199,0.8)]
-                            "
-                        />
-                        <span className="mt-1 text-[20px] 
-                                text-center 
-                                text-[#EFD9C7]
-                                transition-all
-                                duration-500
-                                group-hover:scale-125
-                                group-hover:rotate-6
-                                group-hover:drop-shadow-[0_0_12px_rgba(239,217,199,0.8)]">
-                            Baixar <br /> CV
-                        </span>
-                    </a>
                 </div>
 
             </div>

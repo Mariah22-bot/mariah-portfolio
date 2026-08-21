@@ -1,17 +1,6 @@
 /**
- * ==========================================================
- * SVG TRANSFORMS
- * ==========================================================
- *
- * Todas as transformações SVG ficam centralizadas aqui.
- *
- * Nenhum componente deve possuir translate(), rotate()
- * ou scale() escritos diretamente.
- *
- * Isso facilita trocar a ilustração futuramente sem
- * precisar editar vários componentes.
- *
- * ==========================================================
+ SVG TRANSFORMS -
+ Todas as transformações SVG ficam centralizadas aqui.
  */
 
 export const TRANSFORMS = {
@@ -21,7 +10,7 @@ export const TRANSFORMS = {
     `,
 
     eye: `
-        translate(0 -120)
+        translate(5 -1)
     `,
 
     hair: {

@@ -6,6 +6,7 @@ import { WindowMenu } from './components/Layout/WindowMenu'
 import { Projetos } from './components/Projetos'
 import { Sobre } from './components/Sobre'
 import { Contato } from './components/Contato'
+import { scrollToSection } from './utils/navigation'
 import type { MenuItem } from './types/menu'
 
 function App() {
@@ -14,16 +15,12 @@ function App() {
   const toggleMenu = () => setIsMenuOpen((prev) => !prev)
   const closeMenu = () => setIsMenuOpen(false)
 
-  const scrollToSection = (section: MenuItem) => {
+  const handleScrollToSection = (section: MenuItem) => {
     const target = document.getElementById(section)
     if (!target) return
 
-    // Rolagem suave para a seção, compensando a altura da NavBar quando aberta
-    const targetPosition = target.getBoundingClientRect().top + window.scrollY
-    const NavBarOffset = isMenuOpen ? 80 : 0
-    const offsetPosition = targetPosition - NavBarOffset
-
-    window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
+    const offset = isMenuOpen ? 80 : 0
+    scrollToSection(target, offset)
     closeMenu()
   }
 
@@ -33,13 +30,13 @@ function App() {
         isOpen={isMenuOpen}
         onToggleMenu={toggleMenu}
         onCloseMenu={closeMenu}
-        onHomeClick={() => scrollToSection('home')}
+        onHomeClick={() => handleScrollToSection('home')}
       />
 
       <WindowMenu
         isOpen={isMenuOpen}
         onClose={closeMenu}
-        onSelectItem={scrollToSection}
+        onSelectItem={handleScrollToSection}
       />
 
       <div className="grow w-full px-4 sm:px-6 md:px-8">

@@ -3,11 +3,8 @@ import type { InteractiveContainerProps, Section } from "./types";
 import avatarImg from "../../../assets/images/mariah-avatar.png";
 import { HairHotspot } from "./hotspots/HairHotspot";
 import { MouthHotspot } from "./hotspots/MouthHotspot";
-import { Hotspot } from "./hotspots";
-import { EYE } from "./paths";
-import { COLORS, 
-    // OPACITY, STROKE 
-} from "./constants";
+import { EyeHotspot } from "./hotspots/EyeHotspot";
+// imports limpos: Hotspot, EYE e COLORS não eram usados aqui
 
 export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
     showHotspots = true,
@@ -49,7 +46,7 @@ export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
             style={{ maxWidth: maxWidth }}
             className="relative w-full mx-auto flex items-center justify-center overflow-hidden rounded-lg"
         >
-            
+
             {/* Imagem Artística de Fundo */}
             <img
                 src={avatarImg}
@@ -76,93 +73,7 @@ export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
                     </g>
 
                     {/* Hotspot único dos Olhos (Sobre) */}
-                    <Hotspot
-                        href="#sobre"
-                        section="sobre"
-                        animate={false}
-                        onNavigate={handleNavigation}
-                    >
-                        <path
-                            d={EYE.clickArea}
-                            fill="transparent"
-                            className="cursor-pointer"
-                            pointerEvents="all"
-                        />
-
-                        <g transform="translate(32 -225)">
-                            {/* <path
-                                d={EYE.outline}
-                                fill="none"
-                                stroke={COLORS.eye}
-                                strokeWidth={STROKE.eye.outline}
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                style={{ opacity: OPACITY.visible }}
-                            />
-                            <path
-                                d={EYE.bottomLine}
-                                fill="none"
-                                stroke={COLORS.eye}
-                                strokeWidth={STROKE.eye.line}
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                style={{ opacity: OPACITY.visible }}
-                            /> */}
-
-                            {/* Detalhe central estilo olho biónico */}
-                            <circle
-                                cx={380}
-                                cy={585}
-                                r={30}
-                                fill="none"
-                                stroke={COLORS.eye}
-                                strokeWidth={3}
-                                opacity={0.95}
-                            />
-                            <circle
-                                cx={380}
-                                cy={585}
-                                r={18}
-                                fill="rgba(158, 246, 255, 0.18)"
-                                stroke="rgba(158, 246, 255, 0.9)"
-                                strokeWidth={2}
-                            />
-                            <circle
-                                cx={380}
-                                cy={585}
-                                r={9}
-                                fill="#8af4ff"
-                                opacity={0.98}
-                            />
-                            <circle
-                                cx={380}
-                                cy={585}
-                                r={4}
-                                fill="#ffffff"
-                                opacity={0.9}
-                            />
-                            <circle
-                                cx={380}
-                                cy={585}
-                                r={40}
-                                fill="none"
-                                stroke="rgba(255,255,255,0.22)"
-                                strokeWidth={1.2}
-                            />
-                            <path
-                                d="M 325 334 L 365 334"
-                                stroke="rgba(255,255,255,0.3)"
-                                strokeWidth={1.4}
-                                strokeLinecap="round"
-                            />
-                            <path
-                                d="M 345 314 L 345 354"
-                                stroke="rgba(255,255,255,0.3)"
-                                strokeWidth={1.4}
-                                strokeLinecap="round"
-                            />
-                        </g>
-                    </Hotspot>
+                    <EyeHotspot animate={false} onNavigate={handleNavigation} />
 
                     {/* Hotspot da Boca (Contato) */}
                     <MouthHotspot animate={false} onNavigate={handleNavigation} />

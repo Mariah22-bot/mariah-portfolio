@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React from "react";
 import type { Section } from "../types";
 
 interface ShowWordProps {
@@ -15,8 +15,8 @@ export const ShowWord: React.FC<ShowWordProps> = ({ section, hovered }) => {
         return String(section).toUpperCase();
     };
 
-    const label = useMemo(() => getLabel(), [section]);
-    const letters = useMemo(() => label.split(""), [label]);
+    const label = getLabel();
+    const letters = label.split("");
 
     const getCoordinates = () => {
         if (section === "sobre") {
@@ -32,51 +32,8 @@ export const ShowWord: React.FC<ShowWordProps> = ({ section, hovered }) => {
     };
 
     const coords = getCoordinates();
-
-    // visibilidade coletiva do texto (fade-in/fade-out) e timers de controle
-    const [visible, setVisible] = useState<boolean>(false)
-
-    // durações configuráveis (ms)
-    const appearDuration = 1000
-    const stayMs = 1000
-
-    const showTimerRef = React.useRef<number | null>(null)
-    const hideTimerRef = React.useRef<number | null>(null)
-
-    const clearAll = () => {
-        if (showTimerRef.current) {
-            clearTimeout(showTimerRef.current)
-            showTimerRef.current = null
-        }
-        if (hideTimerRef.current) {
-            clearTimeout(hideTimerRef.current)
-            hideTimerRef.current = null
-        }
-    }
-
-    const startSequence = () => {
-        clearAll()
-        setVisible(false)
-        showTimerRef.current = window.setTimeout(() => setVisible(true), 100)
-        hideTimerRef.current = window.setTimeout(() => setVisible(false), appearDuration + stayMs + 100)
-    }
-
-    // executa ao montar e limpa timers ao desmontar
-    React.useEffect(() => {
-        startSequence()
-        return () => clearAll()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
-    // durante hover mostramos o texto; ao sair, aplicamos fade-out
-    React.useEffect(() => {
-        if (hovered) {
-            clearAll()
-            setVisible(true)
-        } else {
-            setVisible(false)
-        }
-    }, [hovered])
+    const visible = Boolean(hovered);
+    const appearDuration = 250;
 
     const gradId = `sw-grad-${section}`;
     const glowId = `sw-glow-${section}`;

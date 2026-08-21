@@ -1,13 +1,13 @@
 import React from "react";
 import type { EyeHotspotProps } from "../types";
-import { Hotspot } from "../hotspots";
+import { Hotspot } from ".";
 import { EYE } from "../paths";
 import { TRANSFORMS } from "../transforms";
-// import { COLORS, STROKE, OPACITY } from "../constants";
+import { COLORS } from "../constants";
 
 export const EyeHotspot: React.FC<EyeHotspotProps> = ({
     animate,
-    // showWord = true,
+    showWord = true,
     onNavigate,
 }) => {
     const section = "sobre";
@@ -20,66 +20,62 @@ export const EyeHotspot: React.FC<EyeHotspotProps> = ({
             section={section}
             transform={transform}
             animate={animate}
-            // showWord={showWord}
+            showWord={showWord}
             onNavigate={onNavigate}
         >
-            {/* Área de Clique Oculta: toda a área interna do olho, incluindo o centro cibernético */}
+
             <path
                 d={EYE.clickArea}
-                fill="rgba(255,255,255,0.01)"
+                fill="transparent"
                 stroke="transparent"
-                strokeWidth={30}
-                pointerEvents="all"
-                className="cursor-pointer"
-            />
-            <path
-                d={EYE.clickAreaInner}
-                fill="rgba(255,255,255,0.01)"
-                stroke="transparent"
-                strokeWidth={18}
-                pointerEvents="all"
-                className="cursor-pointer"
-            />
-            <path
-                d={EYE.clickAreaCenter}
-                fill="rgba(255,255,255,0.01)"
-                stroke="transparent"
-                strokeWidth={18}
-                pointerEvents="all"
-                className="cursor-pointer"
-            />
-            <path
-                d={EYE.irisRing}
-                fill="rgba(255,255,255,0.01)"
-                stroke="transparent"
-                strokeWidth={18}
-                pointerEvents="all"
-                className="cursor-pointer"
+                strokeWidth={60}
+                pointerEvents="stroke"
             />
 
-            {/* Contorno Principal */}
-            {/* <path
-                d={EYE.outline}
-                fill="none"
-                stroke={COLORS.eye}
-                strokeWidth={STROKE.eye.outline}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                style={{ opacity: OPACITY.visible }}
-                className="transition-opacity duration-500 group-hover:opacity-100 cursor-pointer"
-            /> */}
-
-            {/* Linha Inferior */}
-            {/* <path
-                d={EYE.bottomLine}
-                fill="none"
-                stroke={COLORS.eye}
-                strokeWidth={STROKE.eye.line}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                style={{ opacity: OPACITY.visible }}
-                className="cursor-pointer"
-            /> */}
+            <g transform="translate(32 -225)">
+                {/* Detalhe central estilo olho biónico */}
+                <circle
+                    cx={380}
+                    cy={585}
+                    r={30}
+                    fill="none"
+                    stroke={COLORS.eye}
+                    strokeWidth={3}
+                    opacity={0.95}
+                />
+                <circle
+                    cx={380}
+                    cy={585}
+                    r={18}
+                    fill="rgba(158, 246, 255, 0.18)"
+                    stroke="rgba(158, 246, 255, 0.9)"
+                    strokeWidth={2}
+                />
+                <circle cx={380} cy={585} r={9} fill="#8af4ff" opacity={0.98} />
+                <circle cx={380} cy={585} r={4} fill="#ffffff" opacity={0.9} />
+                <circle
+                    cx={380}
+                    cy={585}
+                    r={40}
+                    fill="none"
+                    stroke="rgba(255,255,255,0.22)"
+                    strokeWidth={1.2}
+                />
+                <path
+                    d="M 325 334 L 365 334"
+                    stroke="rgba(255,255,255,0.3)"
+                    strokeWidth={1.4}
+                    strokeLinecap="round"
+                />
+                <path
+                    d="M 345 314 L 345 354"
+                    stroke="rgba(255,255,255,0.3)"
+                    strokeWidth={1.4}
+                    strokeLinecap="round"
+                />
+            </g>
         </Hotspot>
     );
 };
+
+export default EyeHotspot;
