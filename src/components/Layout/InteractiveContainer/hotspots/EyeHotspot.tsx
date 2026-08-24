@@ -3,10 +3,10 @@ import type { EyeHotspotProps } from "../types";
 import { Hotspot } from ".";
 import { TRANSFORMS } from "../transforms";
 import eyeImg from "../../../../assets/images/olho-bionico.png";
+import { EYE } from "../paths";
 
 export const EyeHotspot: React.FC<EyeHotspotProps> = ({
     animate,
-    // showWord = true,
     revealWords,
     onNavigate,
 }) => {
@@ -20,13 +20,12 @@ export const EyeHotspot: React.FC<EyeHotspotProps> = ({
             section={section}
             transform={transform}
             animate={animate}
-            // showWord={showWord}
             revealWords={revealWords}
             onNavigate={onNavigate}
         >
 
             {/* Área de Clique Oculta */}
-            <path d="M 320 525 L 440 525 L 440 645 L 320 645 Z"
+            <path d={EYE.clickArea}
                 fill="transparent" className="cursor-pointer" />
 
             <g
