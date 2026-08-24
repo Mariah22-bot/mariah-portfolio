@@ -27,6 +27,7 @@ export const HairHotspot: React.FC<HairHotspotProps> = ({
       revealWords={revealWords}
       onNavigate={onNavigate}
     >
+
       {/* Área de clique estendida */}
       <path
         d={HAIR.path}

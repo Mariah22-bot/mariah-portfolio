@@ -15,12 +15,12 @@ export const WindowMenu = ({ isOpen, onClose, onSelectItem }: WindowMenuProps) =
 
         const handleClickOutside = (event: MouseEvent) => {
             const target = event.target as HTMLElement;
-            const clicouNoSanduiche = target.closest(".botao-menu-sanduiche");
+            const clicouNoMenu = target.closest(".botao-menu");
 
             if (
                 menuRef.current &&
                 !menuRef.current.contains(target) &&
-                !clicouNoSanduiche
+                !clicouNoMenu
             ) {
                 onClose();
             }

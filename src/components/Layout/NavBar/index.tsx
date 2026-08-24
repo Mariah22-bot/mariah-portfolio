@@ -54,7 +54,7 @@ export const NavBar = ({ isOpen, onToggleMenu, onCloseMenu, onHomeClick }: NavBa
                 <button
                     type="button"
                     onClick={isOpen ? onCloseMenu : onToggleMenu}
-                    className="rounded-full p-1 transition-transform duration-300 ease-out hover:scale-[1.15] active:scale-[0.97] focus:outline-none cursor-pointer botao-menu-sanduiche"
+                    className="rounded-full p-1 transition-transform duration-300 ease-out hover:scale-[1.15] active:scale-[0.97] focus:outline-none cursor-pointer botao-menu"
                     aria-label="Abrir menu"
                     aria-expanded={isOpen}
                 >
