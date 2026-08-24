@@ -6,7 +6,7 @@ import eyeImg from "../../../../assets/images/olho-bionico.png";
 
 export const EyeHotspot: React.FC<EyeHotspotProps> = ({
     animate,
-    showWord = true,
+    // showWord = true,
     revealWords,
     onNavigate,
 }) => {
@@ -20,10 +20,14 @@ export const EyeHotspot: React.FC<EyeHotspotProps> = ({
             section={section}
             transform={transform}
             animate={animate}
-            showWord={showWord}
+            // showWord={showWord}
             revealWords={revealWords}
             onNavigate={onNavigate}
         >
+
+            {/* Área de Clique Oculta */}
+            <path d="M 320 525 L 440 525 L 440 645 L 320 645 Z"
+                fill="transparent" className="cursor-pointer" />
 
             <g
                 transform="translate(32 -225)"
