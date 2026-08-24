@@ -49,7 +49,10 @@ export const EyeHotspot: React.FC<EyeHotspotProps> = ({
                     preserveAspectRatio="xMidYMid meet"
                     pointerEvents="all"
                     className="cursor-pointer"
-                />
+                >
+                    <path d={EYE.clickArea}
+                        fill="transparent" className="cursor-pointer" />
+                </image>
             </g>
         </Hotspot>
     );
