@@ -10,6 +10,7 @@ export const Hotspot: React.FC<HotspotProps> = ({
     children,
     showWord = true,
     hovered: externalHovered,
+    revealWords,
     onNavigate,
 }) => {
 
@@ -87,7 +88,7 @@ export const Hotspot: React.FC<HotspotProps> = ({
                 {showWord && (
                     <ShowWord
                         section={section}
-                        hovered={effectiveHovered || touchActive}
+                        hovered={effectiveHovered || touchActive || Boolean(revealWords)}
                     />
                 )}
             </g>

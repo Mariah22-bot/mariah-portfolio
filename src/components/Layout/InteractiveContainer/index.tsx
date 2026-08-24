@@ -12,6 +12,13 @@ export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
 }) => {
     const [maxWidth, setMaxWidth] = useState<string>("905px");
     const [hairHovered, setHairHovered] = useState<boolean>(false);
+    const [revealWords, setRevealWords] = useState<boolean>(true);
+
+    useEffect(() => {
+        if (!showHotspots) return;
+        const t = window.setTimeout(() => setRevealWords(false), 2000);
+        return () => clearTimeout(t);
+    }, [showHotspots]);
 
     useEffect(() => {
         const handleResize = () => {
@@ -67,16 +74,16 @@ export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
                         onMouseLeave={() => setHairHovered(false)}
                         onClick={() => handleNavigation('projetos')}
                     >
-                        <HairHotspot variant="left" animate={false} hovered={hairHovered} onNavigate={handleNavigation} />
-                        <HairHotspot variant="right" animate={false} hovered={hairHovered} onNavigate={handleNavigation} />
-                        <HairHotspot variant="center" animate={false} hovered={hairHovered} onNavigate={handleNavigation} />
+                        <HairHotspot variant="left" animate={false} hovered={hairHovered} revealWords={revealWords} onNavigate={handleNavigation} />
+                        <HairHotspot variant="right" animate={false} hovered={hairHovered} revealWords={revealWords} onNavigate={handleNavigation} />
+                        <HairHotspot variant="center" animate={false} hovered={hairHovered} revealWords={revealWords} onNavigate={handleNavigation} />
                     </g>
 
                     {/* Hotspot único dos Olhos (Sobre) */}
-                    <EyeHotspot animate={false} onNavigate={handleNavigation} />
+                    <EyeHotspot animate={false} revealWords={revealWords} onNavigate={handleNavigation} />
 
                     {/* Hotspot da Boca (Contato) */}
-                    <MouthHotspot animate={false} onNavigate={handleNavigation} />
+                    <MouthHotspot animate={false} revealWords={revealWords} onNavigate={handleNavigation} />
                 </svg>
             )}
         </div>

@@ -25,6 +25,9 @@ export interface HotspotProps {
     /** Força o estado de hover externamente (ex: grupo de cachos) */
     hovered?: boolean;
 
+    /** Quando true, força a exibição temporária da palavra (inicial reveal) */
+    revealWords?: boolean;
+
     onNavigate: (section: Section) => void;
 }
 
@@ -33,6 +36,8 @@ export interface HotspotProps {
 export interface EyeHotspotProps {
     animate?: boolean;
     showWord?: boolean;
+    /** Força exibição temporária da palavra (inicial reveal) */
+    revealWords?: boolean;
 
     onNavigate: (section: Section) => void;
 }
@@ -45,6 +50,8 @@ export interface HairHotspotProps {
 
     /** Recebe hover de grupo, se houver */
     hovered?: boolean;
+    /** Força exibição temporária da palavra (inicial reveal) */
+    revealWords?: boolean;
 
     onNavigate: (section: Section) => void;
 }
@@ -53,6 +60,8 @@ export interface HairHotspotProps {
 
 export interface MouthHotspotProps {
     animate?: boolean;
+    /** Força exibição temporária da palavra (inicial reveal) */
+    revealWords?: boolean;
 
     onNavigate: (section: Section) => void;
 }

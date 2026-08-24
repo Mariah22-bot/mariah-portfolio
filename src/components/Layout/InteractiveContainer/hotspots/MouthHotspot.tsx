@@ -7,6 +7,7 @@ import { COLORS, STROKE, OPACITY } from "../constants";
 
 export const MouthHotspot: React.FC<MouthHotspotProps> = ({
   animate,
+  revealWords,
   onNavigate,
 }) => {
   const section = "contato";
@@ -19,10 +20,11 @@ export const MouthHotspot: React.FC<MouthHotspotProps> = ({
       section={section}
       transform={transform}
       animate={animate}
+      revealWords={revealWords}
       onNavigate={onNavigate}
     >
       {/* Área de Clique Oculta */}
-      <path d={MOUTH.clickArea} 
+      <path d={MOUTH.clickArea}
         fill="transparent" className="cursor-pointer" />
 
       {/* Contorno dos Lábios */}

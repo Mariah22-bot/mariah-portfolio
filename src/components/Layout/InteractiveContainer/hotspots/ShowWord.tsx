@@ -20,13 +20,13 @@ export const ShowWord: React.FC<ShowWordProps> = ({ section, hovered }) => {
 
     const getCoordinates = () => {
         if (section === "sobre") {
-            return { x: 515, y: 320 };
+            return { x: 512, y: 320 };
         }
         if (section === "contato") {
-            return { x: 495, y: 800 };
+            return { x: 495, y: 820 };
         }
         if (section === "projetos") {
-            return { x: 485, y: 300 };
+            return { x: 495, y: 300 };
         }
         return { x: 0, y: 0 };
     };

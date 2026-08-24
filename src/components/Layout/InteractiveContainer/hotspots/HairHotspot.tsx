@@ -9,6 +9,7 @@ export const HairHotspot: React.FC<HairHotspotProps> = ({
   variant,
   animate,
   hovered,
+  revealWords,
   onNavigate,
 }) => {
   const section = "projetos";
@@ -23,6 +24,7 @@ export const HairHotspot: React.FC<HairHotspotProps> = ({
       animate={animate}
       showWord={variant === "center"}
       hovered={hovered}
+      revealWords={revealWords}
       onNavigate={onNavigate}
     >
       {/* Área de clique estendida */}

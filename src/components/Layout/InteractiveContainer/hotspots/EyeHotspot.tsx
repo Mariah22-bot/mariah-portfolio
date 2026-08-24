@@ -1,13 +1,13 @@
 import React from "react";
 import type { EyeHotspotProps } from "../types";
 import { Hotspot } from ".";
-import { EYE } from "../paths";
 import { TRANSFORMS } from "../transforms";
-import { COLORS } from "../constants";
+import eyeImg from "../../../../assets/images/olho-bionico.png";
 
 export const EyeHotspot: React.FC<EyeHotspotProps> = ({
     animate,
     showWord = true,
+    revealWords,
     onNavigate,
 }) => {
     const section = "sobre";
@@ -21,57 +21,31 @@ export const EyeHotspot: React.FC<EyeHotspotProps> = ({
             transform={transform}
             animate={animate}
             showWord={showWord}
+            revealWords={revealWords}
             onNavigate={onNavigate}
         >
 
-            <path
-                d={EYE.clickArea}
-                fill="transparent"
-                stroke="transparent"
-                strokeWidth={60}
-                pointerEvents="stroke"
-            />
-
-            <g transform="translate(32 -225)">
-                {/* Detalhe central estilo olho biónico */}
-                <circle
-                    cx={380}
-                    cy={585}
-                    r={30}
-                    fill="none"
-                    stroke={COLORS.eye}
-                    strokeWidth={3}
-                    opacity={0.95}
-                />
-                <circle
-                    cx={380}
-                    cy={585}
-                    r={18}
-                    fill="rgba(158, 246, 255, 0.18)"
-                    stroke="rgba(158, 246, 255, 0.9)"
-                    strokeWidth={2}
-                />
-                <circle cx={380} cy={585} r={9} fill="#8af4ff" opacity={0.98} />
-                <circle cx={380} cy={585} r={4} fill="#ffffff" opacity={0.9} />
-                <circle
-                    cx={380}
-                    cy={585}
-                    r={40}
-                    fill="none"
-                    stroke="rgba(255,255,255,0.22)"
-                    strokeWidth={1.2}
-                />
-                <path
-                    d="M 325 334 L 365 334"
-                    stroke="rgba(255,255,255,0.3)"
-                    strokeWidth={1.4}
-                    strokeLinecap="round"
-                />
-                <path
-                    d="M 345 314 L 345 354"
-                    stroke="rgba(255,255,255,0.3)"
-                    strokeWidth={1.4}
-                    strokeLinecap="round"
+            <g
+                transform="translate(32 -225)"
+                tabIndex={0}
+                role="button"
+                aria-label="Ir para Sobre"
+                onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        onNavigate(section);
+                    }
+                }}
+            >
+                <image
+                    href={eyeImg}
+                    x={320}
+                    y={525}
+                    width={120}
+                    height={120}
+                    preserveAspectRatio="xMidYMid meet"
+                    pointerEvents="all"
+                    className="cursor-pointer"
                 />
             </g>
         </Hotspot>
