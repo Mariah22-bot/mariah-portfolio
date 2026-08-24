@@ -54,14 +54,14 @@ export const NavBar = ({ isOpen, onToggleMenu, onCloseMenu, onHomeClick }: NavBa
                 <button
                     type="button"
                     onClick={isOpen ? onCloseMenu : onToggleMenu}
-                    className="rounded-full p-1 transition-transform duration-300 ease-out hover:scale-[1.15] active:scale-[0.97] focus:outline-none cursor-pointer botao-menu"
+                    className="rounded-full transition-transform duration-300 ease-out hover:scale-[1.15] active:scale-[0.97] focus:outline-none cursor-pointer botao-menu"
                     aria-label="Abrir menu"
                     aria-expanded={isOpen}
                 >
                     <img
                         src={menuImg}
                         alt="Ícone de menu"
-                        className="mb-2 h-auto w-11 md:w-15 lg:w-15 object-contain pointer-events-none"
+                        className="mb-2 h-auto w-19 md:w-23 lg:w-23 object-contain pointer-events-none"
                     />
                 </button>
             </div>
