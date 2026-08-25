@@ -60,12 +60,14 @@ export const Hotspot: React.FC<HotspotProps> = ({
             // se já estava ativo por toque, segue para navegação
             console.log('[Hotspot] second touch — navigating to', section);
             clearTouch();
+            e.preventDefault();
             onNavigate(section);
             return;
         }
 
         // comportamento padrão para mouse/desktop
         console.log('[Hotspot] mouse click — navigating to', section);
+        e.preventDefault();
         onNavigate(section);
     };
 

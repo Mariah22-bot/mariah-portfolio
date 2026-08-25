@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import type { InteractiveContainerProps, Section } from "./types";
 import avatarImg from "../../../assets/images/mariah-avatar.png";
+import { scrollToSection } from "../../../utils/navigation";
 import { HairHotspot } from "./hotspots/HairHotspot";
 import { MouthHotspot } from "./hotspots/MouthHotspot";
 import { EyeHotspot } from "./hotspots/EyeHotspot";
@@ -40,7 +41,8 @@ export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
 
         const element = document.getElementById(section);
         if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
+            // use shared scroll util to calculate offsets consistently
+            scrollToSection(element, 0);
         }
     };
 
