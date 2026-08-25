@@ -30,15 +30,6 @@ export const EyeHotspot: React.FC<EyeHotspotProps> = ({
 
             <g
                 transform="translate(32 -225)"
-                tabIndex={0}
-                role="button"
-                aria-label="Ir para Sobre"
-                onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        onNavigate(section);
-                    }
-                }}
             >
                 <image
                     href={eyeImg}

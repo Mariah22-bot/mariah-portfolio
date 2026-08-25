@@ -40,9 +40,28 @@ export const InteractiveContainer: React.FC<InteractiveContainerProps> = ({
         }
 
         const element = document.getElementById(section);
+        console.log('[handleNavigation] elemento encontrado?', !!element, { section, element });
         if (element) {
-            // use shared scroll util to calculate offsets consistently
-            scrollToSection(element, 0);
+            try {
+                const rect = element.getBoundingClientRect();
+                console.log('[handleNavigation] target rect:', rect, 'window.scrollY:', window.scrollY);
+            } catch (err) {
+                console.log('[handleNavigation] erro ao ler bounding rect', err);
+            }
+
+            // detect touch devices and add a tiny delay to avoid race conditions
+            const isTouchDevice = typeof navigator !== 'undefined' && (navigator.maxTouchPoints > 0 || ('ontouchstart' in window));
+            const doScroll = () => scrollToSection(element, 0);
+
+            if (isTouchDevice) {
+                // delay slightly to avoid mobile browser quirks during touch events
+                window.setTimeout(() => {
+                    console.log('[handleNavigation] delayed scroll on touch device');
+                    doScroll();
+                }, 50);
+            } else {
+                doScroll();
+            }
         }
     };
 
