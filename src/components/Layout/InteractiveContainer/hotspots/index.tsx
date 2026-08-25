@@ -39,14 +39,17 @@ export const Hotspot: React.FC<HotspotProps> = ({
     };
 
     const handleHotspotClick = (e: React.MouseEvent<SVGGElement, MouseEvent>) => {
+        console.log('[Hotspot] click', { section, isTouchDevice, touchActive });
         // Em dispositivos touch, alternamos: primeiro toque apenas ativa o texto;
         // segundo toque realmente navega.
         if (isTouchDevice) {
             if (!touchActive) {
                 // mostra a palavra
+                console.log('[Hotspot] first touch — activating touchActive for', section);
                 setTouchActive(true);
                 // limpa após 2.5s para permitir um segundo toque
                 touchTimerRef.current = window.setTimeout(() => {
+                    console.log('[Hotspot] touch timeout expired for', section);
                     setTouchActive(false);
                     touchTimerRef.current = null;
                 }, 2500);
@@ -55,12 +58,14 @@ export const Hotspot: React.FC<HotspotProps> = ({
                 return;
             }
             // se já estava ativo por toque, segue para navegação
+            console.log('[Hotspot] second touch — navigating to', section);
             clearTouch();
             onNavigate(section);
             return;
         }
 
         // comportamento padrão para mouse/desktop
+        console.log('[Hotspot] mouse click — navigating to', section);
         onNavigate(section);
     };
 
